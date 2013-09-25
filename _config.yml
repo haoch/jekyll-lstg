@@ -1,0 +1,69 @@
+title:            Hao Chen
+tagline:          Data driving world
+description:      "Personal website of programmer from china Hao Chen."
+logo:             site-logo.png
+disqus_shortname: haoch
+# Comment out url when working locally to resolve base urls correctly
+url:              http://localhost:4000
+
+# Owner/author information
+owner:
+  name:           Hao Chen
+  avatar:         bio-photo.png
+  bio:            "Just another programmer from China named Hao Chen"
+  email:          cn.haochen@gmail.com
+  twitter:        hchen7
+  facebook:       haochencn
+  github:         haoch
+  linkedin:       ihaochen
+  instagram:      haochen90
+  # For Google Authorship https://plus.google.com/authorship
+  google_plus:    "https://plus.google.com/103688232748743092549"
+
+google_analytics: UA-40551822-1
+google_verify: 
+bing_verify:   
+alexa_verify:  
+
+future:      true
+lsi:         false
+pygments:    true
+markdown:    kramdown
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:title.html
+
+# Internal pages/posts to include in top navigation
+links:
+  - title: About
+    url: /about.html
+  - title: Articles
+    url: /articles
+  - title: Tags
+    url: /tag/index.html
+
+maruku:
+  use_tex:    false
+  use_divs:   false
+  png_engine: blahtex
+  png_dir:    images/latex
+  png_url:    /images/latex
+
+rdiscount:
+  extensions: [smart]
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: true
+  
+  coderay:
+    coderay_line_numbers: 
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "mademistakes.sublime-project", "mademistakes.sublime-workspace", "codekit-config.json", "Gemfile", "Gemfile.lock", "README.md", "node_modules", "Gruntfile.js", "package.json"]

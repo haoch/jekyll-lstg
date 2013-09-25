@@ -1,0 +1,37 @@
+// Typography
+// --------------------------------------------------
+
+@base-font: lato, Calibri, Arial, sans-serif;
+@heading-font: @base-font;
+@caption-font: @base-font;
+@code-font: monospace;
+@alt-font: serif;
+
+@doc-font-size: 16;
+@doc-line-height: 24;
+
+
+// set-up the body font-size / line-height
+body {
+	margin-top: 0px + @doc-line-height;
+	font-size: 0px + @doc-font-size;	
+}
+
+// Colors
+// --------------------------------------------------
+
+@body-color      		: #ebebeb;
+@text-color      		: #222;
+@base-color 	 		: #343434;	  
+@comp-color 	 		: spin(@base-color, 180); 
+@border-color    		: @base-color;
+@white           		: #fff;
+@black           		: #000;
+@accent-color    		: @black;
+@link-color 		    : #222;
+
+@primary				: @black;
+@success				: #5cb85c;
+@warning				: #dd8338;
+@danger					: #C64537;
+@info					: #308cbc;
