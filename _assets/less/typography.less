@@ -5,11 +5,24 @@ body {
 	color: @text-color;
 }
 
+// Header
+// --------------------------------------------------
+h1, h2, h3, h4, h5 {
+	letter-spacing: -1px;
+	font-weight: 700;
+	line-height: 12px;
+	font-family: @heading-font;
+}
+
 // Links
 // --------------------------------------------------
 a { 
 	text-decoration: none;
 	color: @link-color; 
+	-webkit-transition: color .25s ease-in-out;
+	-moz-transition: color .25s ease-in-out;
+	transition: color .25s ease-in-out;
+
 	&:visited { 
 		color: lighten(@link-color, 20); 
 	}

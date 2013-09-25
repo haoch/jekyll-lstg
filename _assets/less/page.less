@@ -2,8 +2,8 @@ body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	background-color: @white;
-	border-top: 5px solid @black;
+	background-color: @body-color; 
+	// border-top: 5px solid @black;
 	@media @medium {
 		.font-rem(20);
 	}
@@ -11,16 +11,22 @@ body {
 
 // Masthead
 // --------------------------------------------------
+.site-header {
+	border-bottom: 1px solid @border-color;
+	color: @text-color;
+	background-color: @body-color ;
+}
 .masthead-wrapper {
 	margin: 0 auto;
 	max-width: 440px;
 	padding-right: 20px;
 	padding-left: 20px;
 	.clearfix();
+
 	@media @medium {
 		max-width: 760px;
-		padding-right: 60px;
-		padding-left: 60px;
+		// padding-right: 60px;
+		// padding-left: 60px;
 	}
 	@media @large {
 		max-width: 960px;
@@ -29,7 +35,7 @@ body {
 #masthead {
 	display: inline-block;
 	float: left;
-	padding-top: 20px;
+	// padding-top: 20px;
 	@media @medium {
 		line-height: 50px; //match logo size to vertically align text
 	}
@@ -38,9 +44,11 @@ body {
 		font-family: @heading-font;
 		text-transform: uppercase;
 		.font-rem(22);
+
 		a {
-			color: @black;
+			color: @text-color;
 		}
+
 		@media @medium {
 			margin-left: 10px;
 			padding-bottom: 0;
@@ -60,12 +68,15 @@ body {
 	}
 }
 
+
 // Site Navigation
 // --------------------------------------------------
+
 #site-nav {
 	clear: both;
-	padding-top: 20px;
+	// padding-top: 20px;
 	font-family: @heading-font;
+	
 	@media @medium {
 		display: inline-block;
 		clear: none;
@@ -81,19 +92,23 @@ body {
 		float: left;
 		list-style: none;
 		.font-rem(14);
-		text-transform: uppercase;
-		color: @black;
+		//text-transform: uppercase;
+		color: @text-color;
+		display: inline;
+		margin-left: 16px;
+		font-size: 18px;
 	}
 	a {
 		display: block;
 		margin-right: 10px;
 		padding-bottom: 0;
-		color: @black;
+		color: @text-color;
 		.transition(color .2s ease);
+
 		&:hover {
 			background-image: url(../../images/strike_bg.png);
 			background-repeat: repeat-x;
-			background-position: left center;
+			background-position: center bottom;
 		}
 		@media @medium {
 			margin-left: 20px;
@@ -107,6 +122,66 @@ body {
 #main {
 	.clearfix();
 }
+
+// Home
+// ---------------------------------------------------
+.portf{
+	min-height: 600px;
+	border-bottom: 4px solid #DAD7D7;
+	overflow-x: hidden;
+	max-width: 100%;
+	height: 100%;
+	display:block;
+}
+.center-me {
+	position: absolute;
+	top: 30%;
+	display: block;
+	z-index: -1;
+	padding-left: 10%;
+	img{
+		vertical-align: top;
+	}
+}
+.intro {
+	position: relative;
+	width: intrinsic;
+	display: inline-block;
+	left: 8vw;
+	margin: 0 auto;
+	text-align: left;
+
+	h1,h2{
+		letter-spacing: 1px;
+		text-align: left;
+		font-family: @heading-font;
+	}
+	h1{
+		text-transform: capitalize;
+		font-size: 48px;		
+		font-weight: 500;
+	};
+	h2{
+		font-size: 32px;
+		font-weight: 200;
+	}
+}
+.arrow{
+	font-family: "Icons";
+	color: #EC6F66;
+	display: block;
+	font-size: 40px;
+	text-align: center;
+	width: 100px;
+	position: absolute;
+	bottom: 7%;
+	margin-left: -50px;
+	left: 50%;
+	z-index: 0;
+}
+
+// Entry
+// --------------------------------------------
 .entry,
 .hentry {
 	.clearfix();

@@ -9,8 +9,8 @@ url:              http://localhost:4000
 # Owner/author information
 owner:
   name:           Hao Chen
-  avatar:         bio-photo.png
-  bio:            "Just another programmer from China named Hao Chen"
+  avatar:         bio-photo-200x200.png
+  bio:            "Just another programmer"
   email:          cn.haochen@gmail.com
   twitter:        hchen7
   facebook:       haochencn
