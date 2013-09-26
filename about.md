@@ -8,8 +8,8 @@ description: "You've found the about page of Michael Rose&thinsp;&ndash;&thinsp;
 tags: [Michael Rose, design, Buffalo, web design, feature]
 ---
 
-<link rel="stylesheet" href="{{ site.url }}/{% ministamp _assets/css/form.css css/form.css %}">
-<script src="{{ site.url }}/{% ministamp _assets/js/vendor/wufoo.js js/vendor/wufoo.js %}"></script>
+<link rel="stylesheet" href="{{ site.url }}/_assets/css/form.css">
+<script src="{{ site.url }}/_assets/js/vendor/wufoo.js %}"></script>
 
 <figure>
   <img src="{{ site.url }}/images/paperfaces-michael-rose-beard-m.jpg" alt="Michael Rose self portrait">
