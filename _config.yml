@@ -4,7 +4,7 @@ description:      "Personal website of programmer from china Hao Chen."
 logo:             site-logo.png
 disqus_shortname: haoch
 # Comment out url when working locally to resolve base urls correctly
-url:              http://haoche.me
+url:              http://haoch.me
 
 # Owner/author information
 owner:
