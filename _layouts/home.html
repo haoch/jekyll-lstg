@@ -13,23 +13,6 @@
 
 <div id="main" role="main" itemprop="mainContentOfPage">
 
-    <!--
-    <article class="entry" itemscope="" itemtype="http://schema.org/Blog" style="border-bottom-width:0;">
-      <div >
-          <div itemprop itemscope="" itemtype="http://schema.org/BlogPosting"><a href="{{site.url}}/about.html" itemprop="url" ref="about">
-            <figure style="text-align:center">
-                <img src="{{site.url}}/images/{{site.owner.avatar}}" alt="About {{site.owner.name}}" border="0" itemprop="image" class="image-rounded"/>
-                <figcaption>
-              <div>
-                  <h1>{{site.owner.name}}</h1>
-                  <h3>{{site.owner.bio}}</h3>
-              </div>
-            </figcaption>
-          </figure></a></div>
-      </div>
-  </article>
-  -->
-
   <article class="entry portf"  itemscope itemtype="http://schema.org/Blog">
     <div class="entry-wrapper">
       <aside class="center-me">
@@ -39,11 +22,11 @@
            <p></p><h2 class="fitt2">{{site.owner.bio}}.</h2><p></p>
        </div>
        </aside>
-       <a class="arrow" id="arrow" href="#sl2"><i class="icon-arrow-down"></i></a>
+       <a class="arrow" id="latest_articles_arrow" href="#latest_articles"><i class="icon-arrow-down"></i></a>
     </div>
   </article>
-
-  <article class="entry" itemscope itemtype="http://schema.org/Blog" style="border-bottom-width:0;">
+  {% comment %}
+  <article class="entry portf" itemscope itemtype="http://schema.org/Blog" style="border-bottom-width:0;">
       <div class="work-content">
         {% for post in site.posts %}
           {% if post.homepage %}<div class="project-wrap" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"><a href="{{ site.url }}{{ post.url }}">
@@ -58,7 +41,9 @@
         {% endfor %}
       </div><!-- /.entry-content -->
   </article>
-  <article class="entry" itemscope itemtype="http://schema.org/Blog">
+  {% endcomment %}
+
+  <article class="entry" itemscope itemtype="http://schema.org/Blog" style="display:none" id="latest_articles">
     <div class="entry-wrapper">
       <header class="entry-header">
         <h1 class="entry-title" itemprop="headline">Latest Articles</h1>

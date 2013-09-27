@@ -1,18 +1,18 @@
 ---
 layout: page
 title: About
-headline: What's a Made Mistakes?
-subheadline: Behind the Name and Designer
+headline: What's a HAOCH.ME?
+subheadline: Behind the Name and Developer
 modified: 2013-08-29
-description: "You've found the about page of Michael Rose&thinsp;&ndash;&thinsp;just another boring, tattooed, time traveling, designer and illustrator from Buffalo, New York."
-tags: [Michael Rose, design, Buffalo, web design, feature]
+description: "You've found the about page of Hao Chen&thinsp;&ndash;&thinsp;just another boring, tattooed, time traveling, software developer from Shanghai, China."
+tags: [Hao Chen, java, python,hadoop,big data ]
 ---
 
 <link rel="stylesheet" href="{{ site.url }}/_assets/css/form.css">
 <script src="{{ site.url }}/_assets/js/vendor/wufoo.js %}"></script>
 
 <figure>
-  <img src="{{ site.url }}/images/paperfaces-michael-rose-beard-m.jpg" alt="Michael Rose self portrait">
+  <img src="{{ site.url }}/images/bio-photo-500x500.png" alt="Hao Chen self portrait">
   <figcaption>Self portrait illustrated with the lovely Paper by 53 iPad app.</figcaption>
 </figure>
 

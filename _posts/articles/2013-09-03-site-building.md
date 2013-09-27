@@ -15,6 +15,7 @@ feature:
 页面生成器 - Jekyll
 -------------------
 **[Jekyll](http://jekyllrb.com/)**,这是一个精简的可适用于博客的静态站点生成器，由Github 联合创始人之一 [Tom Preston-Werner](https://github.com/mojombo/) 利用ruby开发，提供功能完善的静态页面模版和编程框架，目前社区较为活跃，许多非常不错的扩展或分支不断发展中，如[Jekyll-Bootstrap](jekyllbootstrap.com/)等，Gsithub page同样基于Jekyll。
+
 ![Jekyll](http://jekyllrb.com/img/logo-2x.png)
 
 Jekyll主题 - So simple jekyll theme
