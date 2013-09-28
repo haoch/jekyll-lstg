@@ -21,37 +21,9 @@ nav_logo:true
       <aside class="center-me">
         <img src="{{site.url}}/images/{{site.owner.avatar}}" alt="{{site.owner.name}} it's a pleasure."  border="0" itemprop="image" class="image-rounded">
         <div class="intro">
-           <p></p><h1 class="fitt">Hi, I'm {{site.owner.name}}</h1><p></p>
+           <p></p><h2 class="fitt">Hi, I'm {{site.owner.name}}</h2><p></p>
            <p></p><h3 class="fitt2 bio">I'm a {{site.owner.bio}}.</h3><p></p>
-           <h3 class="bio">you can reach me by leaving message or social sites</h3>
-          <p class="social-icons-1x">
-                  
-                  {% if site.owner.github %}
-                  <a href="http://github.com/{{ site.owner.github }}" title="{{ site.owner.name}} on Github" target="_blank"><i class="icon-github icon-1x"></i></a>
-                  {% endif %}
-                  {% if site.owner.linkedin %}
-                  <a href="http://linkedin.com/in/{{ site.owner.linkedin }}" title="{{ site.owner.name}} on LinkedIn" target="_blank"><i class="icon-linkedin icon-1x"></i></a>
-                  {% endif %}
-                  {% if site.owner.weibo %}
-                  <a href="http://weibo.com/{{ site.owner.weibo }}" title="{{ site.owner.name}} on Weibo" target="_blank"><i class="icon-weibo icon-1x"></i></a>
-                  {% endif %}
-                  {% if site.owner.twitter %}
-                  <a href="http://twitter.com/{{ site.owner.twitter }}" title="{{ site.owner.name}} on Twitter" target="_blank"><i class="icon-twitter icon-1x"></i></a>
-                  {% endif %}
-                  {% if site.owner.facebook %}
-                  <a href="http://facebook.com/{{ site.owner.facebook }}" title="{{ site.owner.name}} on Facebook" target="_blank"><i class="icon-facebook icon-1x"></i></a>
-                  {% endif %}
-                  {% if site.owner.google_plus %}
-                  <a href="{{ site.owner.google_plus }}" title="{{ site.owner.name}} on Google+" target="_blank"><i class="icon-google-plus icon-1x"></i></a>
-                  {% endif %}
-                  {% if site.owner.instagram %}
-                  <a href="http://instagram.com/{{ site.owner.instagram }}" title="{{ site.owner.name}} on Instagram" target="_blank"><i class="icon-instagram icon-1x"></i></a>
-                  {% endif %}
-                  {% if site.owner.tumblr %}
-                  <a href="http://{{ site.owner.tumblr }}.tumblr.com" title="{{ site.owner.name}} on Tumblr" target="_blank"><i class="icon-tumblr icon-1x"></i></a>
-                  {% endif %}
-
-              </p><!-- /.social-icons -->
+           
         </div>
        </aside>
        <a class="arrow" id="latest_articles_arrow" href="#latest_articles"><i class="icon-arrow-down"></i></a>
@@ -83,7 +55,7 @@ nav_logo:true
       <div class="entry-content">
         <ul class="post-list">
         {% for post in site.categories.articles limit:10 %}
-          <li><article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}<span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
+          <li><article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"><a href="{{ site.url }}{{ post.url }}"><strong itemprop="name">{{ post.title }}</strong> <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
         {% endfor %}
         </ul>
       </div><!-- /.entry-content -->

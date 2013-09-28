@@ -195,6 +195,7 @@ body {
 	position: absolute;
 	top: 28%;
 	display: block;
+	z-index: -1;
 	padding-left: 10%;
 	img{
 		vertical-align: top;
@@ -205,7 +206,7 @@ body {
 	width: intrinsic;
 	display: inline-block;
 	left: 3vw;
-	top:1vw;
+	top:3vw;
 	margin: 0 auto;
 	text-align: left;
 
@@ -216,9 +217,8 @@ body {
 	}
 	h1{
 		text-transform: capitalize;
-		font-size: 40px;		
+		font-size: 45px;		
 		font-weight: 500;
-		margin-top: 5px;
 	};
 	h2{
 		font-size: 32px;
@@ -538,35 +538,9 @@ span + .entry-title {
 // Social Icons
 // --------------------------------------------------
 .social-icons {
-	margin-left: 2em 0;
-	margin-top: 1em;
+	margin: 2em 0;
 	a {
 		padding: 4px 8px;
-		&:hover { 
-			color:@black;
-		}
-		&[href^="http://twitter.com"]:hover {
-			color: #00acee;
-		}
-		&[href^="http://instagram.com"]:hover {
-			color: #a97c58;
-		}
-		&[href^="http://github.com"]:hover {
-			color: @black;
-		}
-		&[href^="http://facebook.com"]:hover {
-			color: #4862a3;
-		}
-		&[href^="http://plus"]:hover {
-			color: #dc4836;
-		}
-	}
-}
-
-.social-icons-1x{
-	margin-left: 1em 0;
-	a {
-		padding: 2px 4px;
 		&:hover { 
 			color:@black;
 		}
