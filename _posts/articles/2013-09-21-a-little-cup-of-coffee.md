@@ -35,148 +35,154 @@ Coffee Script 并非是JavaScript的超集或者独立于javascript的语言，�
 
 ## Coffee 语法
 
-1. **强制缩进与空白分割** Coffee 语法的主要特点是利用了仿照Python的强制缩进和空白来做代码块分割。
-2. **不使用分号** Javascript 中句尾分号可选，但是js引擎运行前是会自动补充上的，在CoffeeScript中强制不允许使用分号。
-3. **注释 #** 类ruby和python的注释“＃”
+
+#### 1. **强制缩进与空白分割** 
+Coffee 语法的主要特点是利用了仿照Python的强制缩进和空白来做代码块分割。
+
+#### 2. **不使用分号** 
+Javascript 中句尾分号可选，但是js引擎运行前是会自动补充上的，在CoffeeScript中强制不允许使用分号。
+
+#### 3. **注释 #** 
+
+类ruby和python的注释“＃”
 	
-	单行注释
+- 单行注释
 	
-		{% highlight python %}#comments{% endhighlight %}
+	{% highlight python %}#comments{% endhighlight %}
 	
-	多行注释
+- 多行注释
 	
-		{% highlight python %}
-			#comments
-		{% endhighlight %}
+{% highlight python %}
+###
+comments
+###
+{% endhighlight %}
+
+#### 4. 变量声明无需var
+	
+{% highlight python %}name = "hao"{% endhighlight %}
+
+#### 5. 函数声明无需function
+	
+- 无参数函数
+	
+{% highlight python %}
+name = ->"hao"
+name = ()->"hao"
+var name = function(){return "hao";}
+{% endhighlight %}
+
+- 固定参数函数
+	
+{% highlight python %}
+sum = (a,b)->a+b
+var sum = function(a,b){return a+b;}
+{% endhighlight %}
+	
+- 不固定参数函数
+	
+{% highlight python %}
+sum = (a …)-> 
+	result = 0
+	a.forEach (n)-> result+=n
+	result
+{% endhighlight %}
+	
+- 默认值参数函数
+	
+{% highlight python %}
+sum = (a=1,b=2)->a+b
+{% endhighlight %}
+
+#### 6. __函数调用__,使用小括号是可选的
+	
+{% highlight python %}
+sum 1,2
+sum(1,2)
+{% endhighlight %}
+	
+扩展函数调用方法（至少传入一个参数）：
+	
+- parents()
+- apply()
+- call()
 	
 
-4. 变量声明无需var
+#### 7. 流程控制(flow control)
 	
-		{% highlight python %}name = "hao"{% endhighlight %}
+- __->__: 函数内部上下文，函数域外无效
 
-5. 函数声明无需function
+- __=>__: 本地（local）上下文，可调用函数作用域以外变量
 	
-	无参数函数
+- __if … then … else … then …__
 	
-		{% highlight python %}
-		name = ->"hao"
-		name = ()->"hao"
-		var name = function(){return "hao";}
-		{% endhighlight %}
+后缀式条件判断: `it's code if heat < 5`
 	
-	固定参数函数
+- __!__ & __not__
 	
-		{% highlight python %}
-		sum = (a,b)->a+b
-		var sum = function(a,b){return a+b;}
-		{% endhighlight %}
+- __unless__ & __if not__
 	
-	不固定参数函数
+- __is__ & __==__
 	
-		{% highlight python %}
-		sum = (a …)-> 
-			result = 0
-			a.forEach (n)-> result+=n
-			result
-		{% endhighlight %}
+- __isnt__ & __!=__
 	
-	默认值参数函数
-	
-		{% highlight python %}
-		sum = (a=1,b=2)->a+b
-		{% endhighlight %}
-
-6. __函数调用__,使用小括号是可选的
-	
-		{% highlight python %}
-		sum 1,2
-		sum(1,2)
-		{% endhighlight %}
-	
-	扩展函数调用方法（至少传入一个参数）：
-	
-	- parents()
-	- apply()
-	- call()
+- _more …_
 	
 
-7. 流程控制(flow control)
+#### 8. 字符串模板
 	
-	__->__: 函数内部上下文，函数域外无效
-	
-	__=>__: 本地（local）上下文，可调用函数作用域以外变量
-	
-	__if … then … else … then …__
-	
-	后缀式条件判断: `it's code if heat < 5`
-	
-	__!__ & __not__
-	
-	__unless__ & __if not__
-	
-	__is__ & __==__
-	
-	__isnt__ & __!=__
-	
-	_more …_
+{% highlight python %}
+name = "Chen,Hao"
+console.log ""
+{% endhighlight %}
 	
 
-8. 字符串模板
+#### 9. 循环和遍历
+{% highlight python %}for index in []
 	
-		{% highlight python %}
-		name = "Chen,Hao"
-		console.log ""
-		{% endhighlight %}
+for name,index in []
+	
+for key,value of {}
+	
+__method__ num with num  for num in [] when __condition__
+{% endhighlight %}	
+
+#### 10. 数组声明与访问
+	
+声明
+	
+{% highlight python %}
+arr = [1,2,3,4,5] 
+arr = [1
+		2
+		3
+		4
+		5
+	] 
+{% endhighlight %}
+	
+访问
+	
+- 单索引访问：`arr[0]`
+- 区间访问
+	
+{% highlight python %}
+arr[0..2]
+arr[..2]
+aarr[..]
+{% endhighlight %}
 	
 
-9. 循环和遍历
+#### 11. 特殊操作符
 	
-		for index in []
+- __@__ => *this*,常用于类的实例变量或者方法声明中，作为this 关键字的缩写。
 	
-		for name,index in []
+- __::__ => *prototype* ，常用语类的静态变量或者方法申明中，作为prototype关键字的缩写。
 	
-		for key,value of {}
-	
-		__method__ num with num  for num in [] when __condition__
+- __?__:  存在操作符，若前面返回对象不为*null*,""或者undefined的条件下，继续执行，否则返回 *undefined* 。
 	
 
-10. 数组声明与访问
-	
-	声明
-	
-		{% highlight python %}
-		arr = [1,2,3,4,5] 
-		arr = [1
-			2
-			3
-			4
-			5
-		] 
-		{% endhighlight %}
-	
-	访问
-	
-	- 单索引访问：`arr[0]`
-	- 区间访问
-	
-			{% highlight python %}
-			arr[0..2]
-			arr[..2]
-			aarr[..]
-			{% endhighlight %}
-	
+#### 12. 类定义与使用
 
-11. 特殊操作符
-	
-	__@__ => *this*,常用于类的实例变量或者方法声明中，作为this 关键字的缩写。
-	
-	__::__ => *prototype* ，常用语类的静态变量或者方法申明中，作为prototype关键字的缩写。
-	
-	__?__:  存在操作符，若前面返回对象不为*null*,""或者undefined的条件下，继续执行，否则返回 *undefined* 。
-	
-
-12. 类定义与使用
-	
-	关键字：`class`,`@property`,`@method`
-	----- TODO: add code sample -----
+关键字：`class`,`@property`,`@method`
 	
