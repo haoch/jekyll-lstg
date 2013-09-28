@@ -4,6 +4,7 @@ title: "Java String"
 categories:
 - articles
 tags: ["java","String"]
+comments: true
 ---
 
 ## 如何正确使用String?

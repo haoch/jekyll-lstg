@@ -4,6 +4,7 @@ title: "JAVA 不可更改类 Immutable class"
 categories:
 - articles
 tags:   ["java","immutable class"]
+comments: true
 ---
 
 # Java 不可更改类 Immutable class

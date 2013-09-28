@@ -4,6 +4,7 @@ title: "List, ArrayList and LinkedList"
 categories:
 - articles
 tags:   ["java"]
+comments: true
 ---
 
 ### List vs ArrayList
