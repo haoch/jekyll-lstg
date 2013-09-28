@@ -53,23 +53,17 @@ body {
 		line-height: 50px; //match logo size to vertically align text
 	}
 	.site-title {
-		&.with-logo{
-			img{
-				position: absolute;
-				display: block;
-			}
-			padding-left: 60px;
-
-			a {
-				color: @text-color;
-			}
-			.bio{
-				font-size: 16px;
-			}
-		}
+        img{
+            position: absolute;
+            display: block;
+        }
+        .bio{
+            font-size: 14px;
+            font-family: 'Averia Sans Libre',@heading-font;
+        }
 
 		width: 100%;
-		display: inlinej;
+		display: inline;
 		font-family: @heading-font;
 		text-transform: uppercase;
 		.font-rem(22);
@@ -78,10 +72,6 @@ body {
 			color: @text-color;
 		}
 
-		img{
-			display: none;
-			position: absolute;
-		}
 		@media @medium {
 			margin-left: 10px;
 			padding-bottom: 0;
