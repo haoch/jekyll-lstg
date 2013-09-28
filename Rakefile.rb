@@ -44,7 +44,7 @@ task :post do
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.
     directory?(CONFIG['posts'])
   title = ENV["title"] || "new-post"
-  category = ENV['category'] || 'blog'
+  category = ENV['category'] || 'articles'
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   begin
     date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
@@ -64,29 +64,14 @@ task :post do
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts "categories:"
-    post.puts "- #{category}"
-    
-    # if it's project item
-    if category == 'project'
-        link= ENV['link'] || 'http://github.com/haoch'
-        time= ENV['time'] || Time.now.strftime('%Y')
-        desc = ENV['description'] || "Description about #{title}"
-        post.puts "time: #{time}"
-        post.puts "link: #{link}"
-        post.puts "description: #{description}"
-    else category == 'slide'
-        post.puts "permalink: #{category}/#{slug}/index.html"
-        system "mkdir slide/#{slug};cd slide/#{slug};slideshow new"
-        puts "create dir slide/#{slug} and slideshow new"
-    end
-    post.puts "published: false"
+    post.puts "- articles"
     post.puts "---"
   end
 end # task :post
 
 desc "Launch preview environment"
 task :preview do
-  system "jekyll serve --watch"
+  system "jekyll serve --watch --safe"
 end # task :preview
 
 desc "Pull from Github"
