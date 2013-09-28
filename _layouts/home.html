@@ -1,3 +1,6 @@
+---
+nav_logo:true
+---
 <!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -9,18 +12,19 @@
 
 <body id="page" itemscope itemtype="http://schema.org/WebPage">
 
-{% include navigation.html %}
+{% include navigation.html%}
 
 <div id="main" role="main" itemprop="mainContentOfPage">
 
-  <article class="entry portf"  itemscope itemtype="http://schema.org/Blog">
+  <article class="entry portf"  itemscope itemtype="http://schema.org/Blog" id="intro">
     <div class="entry-wrapper">
       <aside class="center-me">
-       <img src="{{site.url}}/images/{{site.owner.avatar}}" alt="{{site.owner.name}} it's a pleasure."  border="0" itemprop="image" class="image-rounded">
-       <div class="intro">
-           <p></p><h1 class="fitt">Hello, I'm {{site.owner.name}}.</h1><p></p>
-           <p></p><h2 class="fitt2">{{site.owner.bio}}.</h2><p></p>
-       </div>
+        <img src="{{site.url}}/images/{{site.owner.avatar}}" alt="{{site.owner.name}} it's a pleasure."  border="0" itemprop="image" class="image-rounded">
+        <div class="intro">
+           <p></p><h2 class="fitt">Hi, I'm {{site.owner.name}}</h2><p></p>
+           <p></p><h3 class="fitt2 bio">I'm a {{site.owner.bio}}.</h3><p></p>
+           
+        </div>
        </aside>
        <a class="arrow" id="latest_articles_arrow" href="#latest_articles"><i class="icon-arrow-down"></i></a>
     </div>
@@ -43,7 +47,7 @@
   </article>
   {% endcomment %}
 
-  <article class="entry" itemscope itemtype="http://schema.org/Blog" style="display:none" id="latest_articles">
+  <article class="entry portf" style="visibility:hidden;display:none;" itemscope itemtype="http://schema.org/Blog" name="latest_articles">
     <div class="entry-wrapper">
       <header class="entry-header">
         <h1 class="entry-title" itemprop="headline">Latest Articles</h1>

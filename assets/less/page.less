@@ -15,12 +15,20 @@ body {
 	border-bottom: 1px solid @border-color;
 	color: @text-color;
 	background-color: @body-color ;
+	&.fixed-top{
+		position: fixed;
+		width: 100%;
+	}
+	z-index: 999;
 }
+
 .masthead-wrapper {
 	margin: 0 auto;
 	max-width: 440px;
 	padding-right: 20px;
 	padding-left: 20px;
+	max-height: 50px;
+	overflow-y: hidden;
 	.clearfix();
 
 	@media @medium {
@@ -32,6 +40,11 @@ body {
 		max-width: 960px;
 	}
 }
+.bio{
+	font-style: italic;
+	text-transform: lowercase;
+	font-weight: normal;
+}
 #masthead {
 	display: inline-block;
 	float: left;
@@ -40,6 +53,22 @@ body {
 		line-height: 50px; //match logo size to vertically align text
 	}
 	.site-title {
+		&.with-logo{
+			img{
+				position: absolute;
+				display: block;
+			}
+			padding-left: 60px;
+
+			a {
+				color: @text-color;
+			}
+			.bio{
+				font-size: 16px;
+			}
+		}
+
+		width: 100%;
 		display: inlinej;
 		font-family: @heading-font;
 		text-transform: uppercase;
@@ -49,6 +78,10 @@ body {
 			color: @text-color;
 		}
 
+		img{
+			display: none;
+			position: absolute;
+		}
 		@media @medium {
 			margin-left: 10px;
 			padding-bottom: 0;
@@ -115,6 +148,31 @@ body {
 			margin-right: 0;
 		}
 	}
+	ul.dropdown-menu{
+		display :none;
+		top:-57px;
+		position: absolute;
+		left:0;
+		width: 100%;
+		text-align: center; 
+		padding-left: 30%;
+		background-color: white;
+		z-index: 1;
+		li{
+			margin-left: 1px;
+			display: inline-block;
+			a{
+				margin-left: 1px;
+			}
+			&.close-btn{
+				float: right;
+				margin-right: 3px;
+				a:hover{
+					background-image: none;
+				}
+			}
+		}
+	}
 }
 
 // Main
@@ -126,7 +184,7 @@ body {
 // Home
 // ---------------------------------------------------
 .portf{
-	min-height: 500px;
+	min-height: 650px;
 	border-bottom: 4px solid #DAD7D7;
 	overflow-x: hidden;
 	max-width: 100%;
@@ -159,7 +217,7 @@ body {
 	}
 	h1{
 		text-transform: capitalize;
-		font-size: 48px;		
+		font-size: 45px;		
 		font-weight: 500;
 	};
 	h2{
@@ -175,10 +233,9 @@ body {
 	text-align: center;
 	width: 100px;
 	position: absolute;
-	bottom: 25%;
+	bottom: 10%;
 	margin-left: -50px;
 	left: 50%;
-	z-index: 0;
 }
 
 // Entry

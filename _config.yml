@@ -1,16 +1,17 @@
 title:            Hao Chen
 tagline:          Data driving world
-description:      "Personal website of programmer from china Hao Chen."
+description:      ""
 logo:             site-logo.png
 disqus_shortname: haoch
 # Comment out url when working locally to resolve base urls correctly
 url:              http://haoch.me
+# url:              http://localhost:4000
 
 # Owner/author information
 owner:
-  name:           Hao Chen
+  name:           Hao
   avatar:         bio-photo-200x200.png
-  bio:            "Just another programmer"
+  bio:            "Java & Python programmer with big data"
   email:          cn.haochen@gmail.com
   twitter:        hchen7
   facebook:       haochencn
