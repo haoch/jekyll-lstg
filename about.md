@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-headline: What's a HAOCH.ME?
+headline: Who's Hao Chen?
 subheadline: Behind the Name and Developer
 modified: 2013-08-29
 description: "You've found the about page of Hao Chen&thinsp;&ndash;&thinsp;just another boring, tattooed, time traveling, software developer from Shanghai, China."
@@ -13,29 +13,21 @@ tags: [Hao Chen, java, python,hadoop,big data ]
 
 <figure>
   <img src="{{ site.url }}/images/bio-photo-500x500.png" alt="Hao Chen self portrait">
-  <figcaption>Self portrait illustrated with the lovely Paper by 53 iPad app.</figcaption>
 </figure>
 
-So why the title *made mistakes*? It vaguely has something to do with that whole happy accident thing, where a mistake can turn out to be something great and unplanned. But to be honest I was just looking for a short, memorable sounding domain name.
 
-In May of 2004 I purchased mademistakes.com, and threw up a Macromedia Flash splash (hey remember those?) while I worked on building a design portfolio using Movable Type. For the next couple of years I would experiment with various content management systems ([Movable Type](http://www.movabletype.org/) &rarr; [Textpattern](http://textpattern.com/) &rarr; [Wordpress](http://wordpress.org/) &rarr; [Indexhibit](http://www.indexhibit.org/)), developing minimalistic themes and learning what I could about <abbr>HTML</abbr>, <abbr>CSS</abbr>, Javascript, <abbr>PHP</abbr>, and MySQL databases.
+## Who is Him?
+He's  Hao Chen, just another boring software programmer living in Shanghai, P.R.China. He works for eBay Data & Data inforstracture team. He mainly code with Java and Python to develop web application include front-end and backend as well with big data product in mongodb, hadoop and teradata. 
 
-I've since decided to go <abbr>CMS</abbr>-free and utilize black magick and [Jekyll](http://jekyllrb.com/) to [manage the site with static text files]({{ site.url }}/articles/going-static.html). I like knowing how things work behind the scenes so hand-coding the layouts and stylesheets is the only way to go. Not being limited by a <abbr>CMS</abbr> is a wonderful thing...
+When he's not working, he is studying or contributing to open source projects or blogging about his current amazing thoughts in technologies, researchs and innovation ideas. Surely, he's never a code monkey but a code poet, at least as thought by himself :). So he also regularly takes sports like badminton and basketball.
 
-### And Who Are You Again?
 
-Oh hey --- I'm Michael Rose, just another boring, tattooed, time traveling, designer and illustrator working in Buffalo, New York. I'm into drawing [faceless portraits of strangers]({{ site.url }}/articles/paperfaces-ipad-portrait-project.html) on an iPad using [Paper by FiftyThree](http://www.fiftythree.com/paper), movie theater popcorn, [chicken wings done right](http://www.duffswings.com "Duff's Famous Wings"), dust collecting record collections, and over using ellipses and em-dashes.
+## Contact
 
-When I'm not drawing on my iPad, releasing open source [Jekyll themes]({{ site.url }}/tag/jekyll), or [building the next great thing](http://ekowave.com), I work as an inhouse web and print designer for a science education company. On any given day I could be designing product catalogs, marketing collateral, landing pages, email promotions and newsletters, or just getting cozy with <abbr>HTML</abbr>, <abbr>CSS</abbr>, and JavaScript.
-
-Oh, and I'm a recent father of twin girls and will someday help redesign [my wife's site](http://2littlerosebuds.com "2 Little Rosebuds")...
-
-## Contact Me
-
-Send a short message below or [@reply me on Twitter](http://twitter.com/mmistakes).
+If you want to have a talk with him. send a short message below or [@reply me on Weibo](http://twitter.com/haochencn) or [@Twitter](http://twitter.com/hchen7)
 
 <form id="form1" name="form1" class="wufoo  page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate
-action="https://mademistakes.wufoo.com/forms/z7x4m1/#public">
+action="https://haoch.wufoo.com/forms/zmi8dfc024z0co/#public">
     <ul>
       <li id="foli1" class="notranslate      ">
         <label class="desc" id="title1" for="Field1"> Message <span id="req_1" class="req">*</span> </label>
