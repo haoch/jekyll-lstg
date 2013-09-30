@@ -146,13 +146,35 @@ body {
 		}
 	}
 	ul.dropdown-menu{
+        &.social-icons{
+            li{
+                a{
+                    padding:0px 1px;
+                }
+            }
+            li:first{
+                @media @tiny{
+                    display:block;
+                    width:100%;
+                }
+                @media @small{
+                    display:inline;
+                    width:auto;
+                }
+            }
+        }
 		display :none;
 		top:-57px;
 		position: absolute;
 		left:0;
 		width: 100%;
 		text-align: center; 
-		padding-left: 30%;
+        @media @small{
+            padding-left: 30%;
+        }
+        @media @tiny{
+            padding-left: 1%;
+        }
 		background-color: white;
 		z-index: 1;
 		li{
@@ -181,7 +203,12 @@ body {
 // Home
 // ---------------------------------------------------
 .portf{
-	min-height: 650px;
+    @media @tiny{
+        min-height: 420px;
+    }
+    @media @small{
+        min-height: 650px;
+    }
 	border-bottom: 4px solid #DAD7D7;
 	overflow-x: hidden;
 	max-width: 100%;
@@ -192,9 +219,17 @@ body {
 	position: absolute;
 	top: 28%;
 	display: block;
-	padding-left: 10%;
-	img{
-		vertical-align: top;
+    @media @small{
+        img{
+            vertical-align: top;
+        }
+        padding-left: 10%;
+    }
+    @media @tiny{
+        img{
+            display:none;
+        }
+        padding-left: 0;
 	}
 }
 .intro {
@@ -230,7 +265,12 @@ body {
 	text-align: center;
 	width: 100px;
 	position: absolute;
-	bottom: 10%;
+    @media @small{
+        bottom: 10%;
+    }
+    @media @tiny{
+        bottom: 20%;
+    }
 	margin-left: -50px;
 	left: 50%;
 }
@@ -517,6 +557,9 @@ span + .entry-title {
 	}
 }
 
+
+.disclaimer{
+}
 // Footer
 // --------------------------------------------------
 .footer-wrapper {
@@ -530,11 +573,18 @@ span + .entry-title {
 	a {
 		color: lighten(@text-color,20);
 	}
+    
 }
 
 // Social Icons
 // --------------------------------------------------
 .social-icons {
+    @media @small{
+        display:block;
+    }
+    @media @tiny{
+        display:none;
+    }
 	margin-left: 2em 0;
 	margin-top: 1em;
 	a {
