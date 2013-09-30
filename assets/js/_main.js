@@ -3,7 +3,7 @@
 
     /*! Global JavaScript Initialize */
     var Global={
-      DEBUG:true,
+      DEBUG:false,
       log:function(m){
         if(Global.DEBUG){
           console.log(m);
@@ -21,7 +21,7 @@
       _smoothscroll:function(){
         Global.log("\tloading smoothscroll")
         $('a[href*=#]:not([href=#])').click(function() {
-          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
               || location.hostname == this.hostname) {
 
             var target = $(this.hash);
@@ -58,13 +58,13 @@
             tError: '<a href="%url%">Image #%curr%</a> could not be loaded.',
           },
           removalDelay: 300, // Delay in milliseconds before popup is removed
-          // Class that is added to body when popup is open. 
+          // Class that is added to body when popup is open.
           // make it unique to apply your CSS animations just to this exact popup
           mainClass: 'mfp-fade'
         });
 
-        // Lazy Load  
-        $("img.load").show().lazyload({ 
+        // Lazy Load
+        $("img.load").show().lazyload({
             effect : "fadeIn"
         });
       },

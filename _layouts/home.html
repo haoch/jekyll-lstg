@@ -19,7 +19,7 @@ nav_logo:true
   <article class="entry portf"  itemscope itemtype="http://schema.org/Blog" id="intro">
     <div class="entry-wrapper">
       <aside class="center-me">
-        <img src="{{site.url}}/images/{{site.owner.avatar}}" alt="{{site.owner.name}} it's a pleasure."  border="0" itemprop="image" class="image-rounded">
+        <img src="/images/{{site.owner.avatar}}" alt="{{site.owner.name}} it's a pleasure."  border="0" itemprop="image" class="image-rounded">
         <div class="intro">
            <p></p><h1 class="fitt">Hi, I'm {{site.owner.name}}</h1><p></p>
            <p></p><h3 class="fitt2 bio">I'm a {{site.owner.bio}}.</h3><p></p>
@@ -63,7 +63,7 @@ nav_logo:true
         {% for post in site.posts %}
           {% if post.homepage %}<div class="project-wrap" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"><a href="{{ site.url }}{{ post.url }}">
             <figure class="project-tease">
-            <img src="{{ site.url }}/images/{{ post.image.homepage }}" alt="{{ post.title }} teaser" border="0" itemprop="image" {% if post.image.circle %}class="image-rounded"{% endif %}>
+            <img src="/images/{{ post.image.homepage }}" alt="{{ post.title }} teaser" border="0" itemprop="image" {% if post.image.circle %}class="image-rounded"{% endif %}>
             <figcaption>
               <div class="figcaption-wrap">
                   <h3 itemprop="name">{% if post.short-title %}{{ post.short-title }}{% else %}{{ post.title }}{% endif %}</h3>
