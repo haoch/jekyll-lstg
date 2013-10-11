@@ -23,6 +23,9 @@
     <div class="entry-wrapper">
       <div class="entry-content" itemprop="description">
         {{ content }}
+
+       <br /> <small>（转载本站文章请注明作者和出处 <a href="{{page.url}}">haoch.me</a>，请勿用于任何商业用途）</small>
+
         {% if page.series %}{% include series.html %}{% endif %}
         <hr />
         <div class="entry-meta">
