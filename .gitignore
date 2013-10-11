@@ -7,4 +7,4 @@ node_modules
 _asset_bundler_cache
 Gemfile.lock
 npm-debug.log
-_config.yml
+plugins/
