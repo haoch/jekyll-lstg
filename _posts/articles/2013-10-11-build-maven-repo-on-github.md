@@ -22,11 +22,15 @@ https://raw.github.com/${github_account}/maven/snapshot/
 https://raw.github.com/${github_account}/maven/release/
 {% endhighlight %}
 
+----
+
 ## 准备
 
 * 申请Github帐号并配置ssh public key: [http://github.com](http://github.com)
 * 安装Git工具: [http://git-scm.com](http://git-scm.com)
 * 安装Maven工具: [http://maven.apache.org](http://maven.apache.org)
+
+----
 
 ## 搭建过程
 
@@ -102,6 +106,8 @@ __6.__ 在pom.xml中使用maven artifact添加以下配置：
     </dependencies>
 </project>
 {% endhighlight %}
+
+----
 
 ## 总结
 Github 目前为止也许是最好的代码托管服务和社交编程平台，拥有非常好的开源分享文化，在这里分享可复用的maven artifact自然也是最佳选择，Git原生提供的强大版本控制能力，在日常开发中必不可少，加上Github免费的git repository的静态raw访问服务，Github作为maven remote repository可以和日常开发工作有效的融合。
