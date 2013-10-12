@@ -4,7 +4,7 @@ description:      ""
 logo:             site-logo.png
 disqus_shortname: haoch
 # Comment out url when working locally to resolve base urls correctly
-url:              http://haoch.me
+url:              http://www.haoch.me
 
 # Owner/author information
 owner:
