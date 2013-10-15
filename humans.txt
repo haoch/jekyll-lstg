@@ -1,19 +1,19 @@
-_  ________ ____   _  ______________  _________ 
-|\/||__||  \|___   |\/||[__  | |__||_/ |___[__  
-|  ||  ||__/|___   |  ||___] | |  || \_|______] 
-                                                
-/* mademistakes.com */
+________  __    ___  _________
+|__| /_\ |  |  /  |__||__ |\ |
+|  |/   \|__|  \__|  ||___| \|
+
+/* haoch.me */
 /* design faux pas */
 
 /* ABOUT */
 
-   Designer:    Michael Rose
-   Twitter:     @mmistakes
-   Location:    Tonawanda, New York USA
+   Designer:    Hao Chen
+   Twitter:     @hchen7
+   Location:    Shanghai, PRC
 
 /* SITE */
-
-   Language:    English
+   URL:         http://haoch.me
+   Language:    Chinese, English
    Built with:  Jekyll <http://jekyllrb.com>
                 LESS
                 jQuery
@@ -21,7 +21,7 @@ _  ________ ____   _  ______________  _________
                 FitVids <http://fitvidsjs.com>
                 Respond <https://github.com/scottjehl/Respond>
                 Adobe Creative Suite (RIP)
-                Sublime Text
+                Vim
                 SourceTree
                 Cyberduck
                 FileZilla
