@@ -1,37 +1,4 @@
-________  __    ___  _________
-|__| /_\ |  |  /  |__||__ |\ |
-|  |/   \|__|  \__|  ||___| \|
+Hao's Personal site
+===================
 
-/* haoch.me */
-
-/* ABOUT */
-
-   Author:      Chen, Hao
-   Twitter:     @hchen7
-   Github:      @haoch
-   Location:    Shanghai, P.R.C
-   Since:       
-
-/* SITE */
-   URL:         http://haoch.me
-   Language:    Chinese, English
-   Built with:  Jekyll <http://jekyllrb.com>
-                LESS
-                jQuery
-                Magnific Popup <https://github.com/dimsemenov/Magnific-Popup>
-                FitVids <http://fitvidsjs.com>
-                Respond <https://github.com/scottjehl/Respond>
-                Adobe Creative Suite (RIP)
-                Vim
-                SourceTree
-                Cyberduck
-                FileZilla
-                Multi-Browser Viewer
-                Grunt <http://gruntjs.com>
-                HTML Compressor <https://code.google.com/p/htmlcompressor>
-
-/* SPECIAL THANKS */
-
-   HTML5 Boilerplate <http://html5boilerplate.com>
-   Twitter Bootstrap <http://twitter.github.com/bootstrap>
-   320 and Up <http://stuffandnonsense.co.uk/projects/320andup>
+URL: [http://haoche.me](http://haoch.me)
