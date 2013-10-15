@@ -3,13 +3,14 @@ ________  __    ___  _________
 |  |/   \|__|  \__|  ||___| \|
 
 /* haoch.me */
-/* design faux pas */
 
 /* ABOUT */
 
-   Designer:    Hao Chen
+   Author:      Chen, Hao
    Twitter:     @hchen7
-   Location:    Shanghai, PRC
+   Github:      @haoch
+   Location:    Shanghai, P.R.C
+   Since:       
 
 /* SITE */
    URL:         http://haoch.me
