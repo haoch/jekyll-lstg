@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "Github搭建个人Maven仓库实践"
+title: "基于Github搭建Maven仓库"
 categories:
 - articles
 comments: true
 tags: [maven,github]
 ---
-
 
 
   [__Maven__](http://maven.apache.org) 是一个项目管理和构建自动化工具， __Maven仓库__ 是用于存放不同编译的artifacts和dependencies（依赖）的模块集合。严格而言，主要有两类仓库： __local（本地）__ 和 __remote（远端）__ 。
