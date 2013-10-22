@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "关于本站 - About the site"
+title: "关于本站"
 categories: 
 - articles
 tags: [jekyll,github]

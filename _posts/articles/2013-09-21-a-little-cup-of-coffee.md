@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "咖啡时刻 - A little cup of Coffee"
+title: "A little cup of CoffeeScript"
 categories:
 - articles
 tags: ["coffeescript"]
