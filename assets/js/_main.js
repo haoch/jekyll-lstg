@@ -3,7 +3,7 @@
 
     /*! Global JavaScript Initialize */
     var Global={
-      DEBUG:false,
+      DEBUG:true,
       log:function(m){
         if(Global.DEBUG){
           console.log(m);
@@ -104,9 +104,21 @@
       _init:function(){
         Global.log("loading page")
         Page.home()
+        Page.tag()
       },
       home:function(){
         Global.log("\tloading home")
+      },
+      tag:function(){
+        Global.log("\tloading cloud")
+        $("ul.tag-box li a").click(function(e){
+            e.preventDefault()
+            Global.log($(this))
+            $("ul.post-list li").hide();
+            $("ul.post-list li").removeClass("hidden");
+            Global.log($("ul.post-list li article[data-tag-"+$(this).attr("data-tag")+"]"))
+            $("ul.post-list li article[data-tag-"+$(this).attr("data-tag")+"]").parent().fadeIn()
+        })
       }
     }/*- End of Page -*/
 
