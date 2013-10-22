@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Intro to cron"
+title: "Cron作业调度"
 categories:
 - articles
 comments: true
