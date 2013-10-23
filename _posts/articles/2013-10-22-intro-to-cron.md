@@ -21,20 +21,16 @@ Cron是一个守护进程(daemon)，只需要启动一次，然后一直保持�
 在大多数linux发行版本中crond是自动安装并添加到祁东脚本中。可通过以下命令查看，第一行显示crond正在运行：
 
 {% highlight bash %}
-
-	$ ps aux | grep crond
-	root      4258  0.0  0.0 117204  1264 ?        Ss   Sep26   1:02 crond
-	hchen     8383  0.0  0.0 103244   876 pts/61   S+   21:58   0:00 grep crond
-
+$ ps aux | grep crond
+root      4258  0.0  0.0 117204  1264 ?        Ss   Sep26   1:02 crond
+hchen     8383  0.0  0.0 103244   876 pts/61   S+   21:58   0:00 grep crond
 {% endhighlight %}
 
 
 若cron被kill或者没有启动，可以将crond添加至启动脚本中，然后启动即可。若希望不重启，可以root帐户执行：
 
 {% highlight bash%}
-
-	$ crond
-
+$ crond
 {% endhighlight %}
 
 进程将自动后台运行，不用强制添加&，此外许多守护程序，如httpd和syslogd，修改杯之后需要重启， 但Vixie Cron不需要，一旦文件被crontab命令修改后便会自动载入，其他版本的可能是每分钟一次或者重启的时候。
@@ -49,23 +45,21 @@ Cron是一个守护进程(daemon)，只需要启动一次，然后一直保持�
 如果希望更灵活的，可以编辑一个crontab 文件（cron的配置文件）。主配置文件是/etc/crontab。在默认的RedHat安装中，crontab的内容如下：
 
 {% highlight bash %}
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/
 
-	SHELL=/bin/bash
-	PATH=/sbin:/bin:/usr/sbin:/usr/bin
-	MAILTO=root
-	HOME=/
-	
-	# For details see man 4 crontabs
-	
-	# Example of job definition:
-	# .---------------- minute (0 - 59)
-	# |  .------------- hour (0 - 23)
-	# |  |  .---------- day of month (1 - 31)
-	# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-	# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
-	# |  |  |  |  |
-	# *  *  *  *  * user-name command to be executed
+# For details see man 4 crontabs
 
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
 {% endhighlight %}
 
 第一部分,显而易见,设置cron的环境变量
@@ -98,8 +92,7 @@ cron的条目是由一些列的字段组成，与/etc/passwd及其相似，只�
 
 对于不需要指定值的字段，只需填入*。
 
-TODO
-====
+TODO >>>
 
 参考
 ---
