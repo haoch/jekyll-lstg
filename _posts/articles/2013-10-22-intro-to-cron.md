@@ -4,7 +4,7 @@ title: "Cron作业调度"
 categories:
 - articles
 comments: true
-tags: [linux]
+tags: [linux,sysadmin]
 ---
 
 
@@ -16,9 +16,9 @@ Cron是指允许linux/unix用户自动（automatically）在特定时间或者�
 
 如何启动Cron
 -----------
-Cron是一个守护进程(daemon)，只需要启动一次，然后一直保持休眠直到被调用。就像web服务器便是一个守护进程，启动后会一直休眠，当接收到页面请求时才会被唤醒。Con守护进程，即__crond__,会在某个文件配置的某个时刻被唤醒，这个配置文件称之谓 __crontabs__。
+Cron是一个守护进程(daemon)，只需要启动一次，然后一直保持休眠直到被调用。就像web服务器便是一个守护进程，启动后会一直休眠，当接收到页面请求时才会被唤醒。Con守护进程，即 __crond__ ,会在某个文件配置的某个时刻被唤醒，这个配置文件称之谓 __crontabs__ 。
 
-在大多数linux发行版本中crond是自动安装并添加到祁东脚本中。可通过以下命令查看，第一行显示crond正在运行：
+在大多数linux发行版本中crond是自动安装并添加到启动脚本中。可通过以下命令查看，第一行显示crond正在运行：
 
 {% highlight bash %}
 $ ps aux | grep crond
@@ -64,31 +64,45 @@ HOME=/
 
 第一部分,显而易见,设置cron的环境变量
 
-> _SHELL_ <p>....</p>
-> 
-> _PATH_ <p>....</p>
-> 
-> _MAILTO_ <p>....</p>
->
-> _HOME_ <p>....</p>
-> 
+_SHELL_ cron 运行使用的shell,默认与 /etc/passwd 中指定的相同。
+
+_PATH_ 包含cron的搜索路径。
+
+_MAILTO_ 指定每个命令输出邮件给谁，无论状态报表或错误等。如果没有指定,输出将发给进程的拥有者。
+
+_HOME_ 是指用作cron的home目录。默认与 /etc/passwd 相同。
+
 
 第二部分较为复杂，也是crontab主要定制的内容。
-cron的条目是由一些列的字段组成，与/etc/passwd及其相似，只不过crontab是通过_空白_分隔。通常每个条目有七个字段：
+cron的条目是由一些列的字段组成，与/etc/passwd及其相似，只不过crontab是通过 _空白_分隔。通常每个条目有七个字段：
+
+~~~
+minute hour dom month dow user cmd
+~~~
 
 <table>
 <thead></thead>
 <tbody>
-<tr><td> minute </td><td></td></tr>
-<tr><td> hour </td><td></td></tr>
-<tr><td> dom </td><td></td></tr>
-<tr><td> month </td><td></td></tr>
-<tr><td> dow </td><td></td></tr>
-<tr><td> user </td><td></td></tr>
-<tr><td> cmd </td><td></td></tr>
+<tr><td> minute </td><td>控制一个小时的哪分钟运行，取值‘0’至‘59’之间</td></tr>
+<tr><td> hour </td><td>指定哪个小时运行，24小时制，取值0至23之间，0表示午夜</td></tr>
+<tr><td> dom </td><td>指定一个月的第几天（the Day of Month），如每个月的第十九天</td></tr>
+<tr><td> month </td><td>指定月份，可用数值类型（0-12），或与月份名称相同，如jan,feb,mar,apr等 </td></tr>
+<tr><td> dow </td><td>指定星期几（the Week of Month），可用数值类型（0-12）和星期名（如 sun 等)，注意0与7均表示星期日</td></tr>
+<tr><td> user </td><td>指定命令运行的用户</td></tr>
+<tr><td> cmd </td><td>指定需要运行的命令，可包含多个字段和空格 </td></tr>
 </tbody>
 </table>
 
+**注意**
+
+1. 等dow为0和7时均表示星期日。
+
+2. 当dom和dow同时指定时，满足任何一种命令均会执行
+
+3. Vixiere Cron 同时也接受字段中使用列表，格式可以以“,”逗号分隔单个元素或者以“-”表示区间
+
+        59 11 * * 1,2,3,4,5 root cmd
+        59 11 * * 1-5 root cmd
 
 对于不需要指定值的字段，只需填入*。
 
