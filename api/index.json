@@ -1,0 +1,32 @@
+---
+layout: nil
+---
+{
+  "meta":{
+    "site":"{{site.url}}",
+    "title":"{{site.title}}",
+    "link":"{{site.url}}{{page.url}}"
+  },
+ "data":[
+    {
+      "name":"articles",
+      "url":"{{site.url}}/api/articles.json"
+    },
+    {
+      "name":"latest",
+      "url":"{{site.url}}/api/latest.json"
+    },
+    {
+      "name":"sitemap",
+      "url":"{{site.url}}/api/sitemap.json"
+    },
+    {
+      "name":"tags",
+      "url":"{{site.url}}/api/tags.json"
+    },
+    {
+      "name":"links",
+      "url":"{{site.url}}/api/links.json"
+    }
+  ]
+}

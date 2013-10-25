@@ -1,0 +1,28 @@
+---
+layout: nil
+categories:
+- api
+---
+{
+  "meta":{
+    "url":"{{site.url}}",
+    "title":"{{site.title}}",
+    "count":{{site.categories.articles.size()}},
+    "link":"{{site.url}}{{page.url}}",
+    "description":"Latest 10 posts"
+  },
+ "data":[
+  {% for post in site.categories.articles limit 10 %} 
+  {
+    "id":"{{post.id}}",
+    "title":"{{ post.title }}",
+    "url":"{{site.url}}{{ post.url }}",
+    "date":"{{ post.date}}",
+    "tags":[{% for tag in post.tags%}"{{tag}}",{% endfor %}null],
+    "previous":{"id":"{{post.previous.id}}","url":"{{site.url}}{{post.previous.url}}"},
+    "next":{"id":"{{post.next.id}}","url":"{{site.url}}{{post.next.url}}"}
+  },
+  {% endfor %} 
+  null
+  ]
+}

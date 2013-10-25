@@ -1,0 +1,53 @@
+---
+layout: nil
+---
+{
+  "meta":{
+    "url":"{{site.url}}",
+    "title":"{{site.title}}",
+    "count":{{site.tags.size()}},
+    "link":"{{site.url}}{{page.url}}",
+    "description":"all tags list"
+  },
+  "data":[
+    {% assign tags_list = site.tags %}
+      {% if tags_list.first[0] == null %}
+        {% for tag in tags_list %} 
+        {
+          "tag": "{{tag}}",
+          "site":{{site.tags[tag].size }},
+          "post":[
+            {% for post in site.categories.articles %} 
+              {% for tag2 in post.tags%} 
+                {% if tag2 == tag  %}
+                  { "id":"{{post.id}}", "url":"{{post.url}}"},
+                {% endif %}
+              {% endfor %} 
+            {% endfor %}
+            null
+          ]
+        },
+        {% endfor %}
+      {% else %}
+        {% for tag in tags_list %} 
+        {
+          "tag": "{{tag[0]}}",
+          "site":{{tag[1].size }},
+          "post":[
+            {% for post in site.categories.articles %} 
+              {% for tag2 in post.tags%} 
+                {% if tag2 == tag[0]  %}
+                  { "id":"{{post.id}}", "url":"{{site.url}}{{post.url}}" },
+                {% endif %}
+              {% endfor %} 
+            {% endfor %}
+            null
+          ]
+        },
+        {% endfor %}
+      {% endif %}
+    {% assign tags_list = nil %}
+    null
+  ]
+}
+

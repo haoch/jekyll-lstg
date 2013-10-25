@@ -1,0 +1,21 @@
+---
+layout: nil
+categories:
+- api
+---
+{
+  "meta":{
+    "url":"{{site.url}}",
+    "title":"{{site.title}}",
+    "count":{{site.posts.size()}},
+    "link":"{{site.url}}{{page.url}}",
+    "description":"site map links"
+  },
+  "data":[
+    "{{ site.url }}",
+    {% for post in site.posts %}
+     "{{ site.url }}{{ post.url }}",
+    {% endfor %}
+    null
+  ]
+}

@@ -1,0 +1,22 @@
+---
+layout: nil
+---
+{
+  "meta":{
+    "url":"{{site.url}}",
+    "title":"{{site.title}}",
+    "count":{{site.links.size()}},
+    "link":"{{site.url}}{{page.url}}",
+    "description":"all links list"
+  },
+  "data":[
+  {% for link in site.links %} 
+    {
+      "url":"{{ link.url }}",
+      "description":"{{ link.desc }}",
+      "title":"{{ link.title }}"
+    },
+  {% endfor %}
+    null
+  ]
+}
