@@ -34,13 +34,21 @@ markdown:    kramdown
 permalink:   /:categories/:title.html
 
 # Internal pages/posts to include in top navigation
-links:
+navigation:
   - title: About
     url: /about.html
   - title: Articles
     url: /articles
   - title: Tags
     url: /tag/index.html
+  - title: Links
+    url: /links
+
+# Related Links displayed in links page
+links:
+  - title: Lionel Cao
+    url: http://caolu.netai.net
+    desc: Lionel Cao's blog site
 
 maruku:
   use_tex:    false
