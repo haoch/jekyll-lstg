@@ -40,7 +40,7 @@ navigation:
   - title: Articles
     url: /articles
   - title: Tags
-    url: /tag/index.html
+    url: /tags
   - title: Links
     url: /links
 
