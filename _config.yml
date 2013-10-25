@@ -47,8 +47,12 @@ navigation:
 # Related Links displayed in links page
 links:
   - title: Lionel Cao
-    url: http://caolu.netai.net
     desc: Lionel Cao's blog site
+    url: http://caolu.netai.net
+    rss: http://caolu.netai.net/feed/
+  - title: 我自然 
+    desc: 颜开的博客
+    url: http://yankay.com
 
 maruku:
   use_tex:    false
