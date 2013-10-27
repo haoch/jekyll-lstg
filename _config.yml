@@ -44,6 +44,8 @@ navigation:
     url: /tags
   - title: Links
     url: /links
+  - title: Social
+    url: /sns
 
 # Related Links displayed in links page
 links:

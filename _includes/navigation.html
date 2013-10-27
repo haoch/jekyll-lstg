@@ -18,6 +18,7 @@
 		        {% for link in site.navigation %}
 				<li><a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a></li>
 		        {% endfor %}
+                {% comment %}
 		        <li>
 		        	<a href="#"> Social </a>
         	        <ul class="dropdown-menu social-icons">	
@@ -43,6 +44,7 @@
 			        	<li class="close-btn"><a title="close" href="#remove"><i class="icon-remove"></i> </a></li>
 			        </ul><!-- /.social-icons -->
 		        </li>
+                {% endcomment %}
 		    </ul>
 		</nav>
 	</div><!-- /.entry-wrapper -->
