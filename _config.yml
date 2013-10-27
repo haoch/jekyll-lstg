@@ -1,10 +1,11 @@
-title:            Hao's Thought Works
+title:            "Hao's Thought Works"
 tagline:          Data driving world
 description:      ""
 logo:             site-logo.png
 disqus_shortname: haoch
 # Comment out url when working locally to resolve base urls correctly
 url:              http://www.haoch.me
+# url:              http://localhost:4000
 
 # Owner/author information
 owner:
@@ -22,9 +23,9 @@ owner:
   google_plus:    "https://plus.google.com/103688232748743092549"
 
 google_analytics: UA-40551822-2
-google_verify: 
-bing_verify:   
-alexa_verify:  
+google_verify:
+bing_verify:
+alexa_verify:
 
 future:      true
 lsi:         false
@@ -47,12 +48,39 @@ navigation:
 # Related Links displayed in links page
 links:
   - title: Lionel Cao
-    desc: Lionel Cao's blog site
+    desc: "Lionel Cao's blog site"
     url: http://caolu.netai.net
     rss: http://caolu.netai.net/feed/
-  - title: 我自然 
+  - title: 我自然
     desc: 颜开的博客
     url: http://yankay.com
+
+projects:
+  - title: Cascading Tester
+    desc: A little more productive test framework for Cascading
+    url: https://github.com/haoch/cascading-tester
+    date: October 2013
+  - title: Gvn
+    desc: A tool for using github repository as maven repository
+    url: https://github.com/haoch/gvn
+    date: October 2013
+  - title: Play2 mongodb RESTful plugin
+    desc: A mongodb RESTful web service plugin for Play2 framework
+    url: https://github.com/haoch/play-restful-mongo
+    date: Augest 2013
+  - title: Multi Agent IPO Financial Model Research
+    desc: Analysis IPO process, define financial model and simulate based on Repast Suite (http://repast.sourceforge.net/).
+    date: February 2011 – Present
+    type: research
+  - title: Multi Agent based Decision Support System for Bankruptcy Contagion
+    desc: Based on Jade and Jadex ( http://jadex-agents.informatik.uni-hamburg.de )
+    url: http://www.sciencedirect.com/science/article/pii/S0957417411016587#!
+    date: March 2010 – March 2012
+    type: research
+  - title: Financial Industrial Chain Bankruptcy Management
+    desc: Implement financial industrial chain model in java, simulate bankruptcy process and find key factors.
+    date: July 2011 - November 2011
+    type: research
 
 maruku:
   use_tex:    false
@@ -70,9 +98,9 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   use_coderay: true
-  
+
   coderay:
-    coderay_line_numbers: 
+    coderay_line_numbers:
     coderay_line_numbers_start: 1
     coderay_tab_width: 4
     coderay_bold_every: 10
