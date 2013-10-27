@@ -16,6 +16,7 @@ nav_logo:true
 
 <div id="main" role="main" itemprop="mainContentOfPage">
 
+  {% comment %}
   <article class="entry portf"  itemscope itemtype="http://schema.org/Blog" id="intro">
     <div class="entry-wrapper">
       <aside class="center-me">
@@ -57,7 +58,6 @@ nav_logo:true
        <a class="arrow" id="latest_articles_arrow" href="#latest_articles"><i class="icon-arrow-down"></i></a>
     </div>
   </article>
-  {% comment %}
   <article class="entry portf" itemscope itemtype="http://schema.org/Blog" style="border-bottom-width:0;">
       <div class="work-content">
         {% for post in site.posts %}
@@ -75,16 +75,54 @@ nav_logo:true
   </article>
   {% endcomment %}
 
-  <article class="entry portf" style="visibility:hidden;display:none;" itemscope itemtype="http://schema.org/Blog" name="latest_articles">
+  <article class="entry" itemscope itemtype="http://schema.org/Blog" name="latest_articles">
     <div class="entry-wrapper">
-      <header class="entry-header">
-        <h1 class="entry-title" itemprop="headline">Latest Articles</h1>
-      </header>
+      <h1>Articles</h1>
       <div class="entry-content">
         <ul class="post-list">
         {% for post in site.categories.articles limit:10 %}
           <li><article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}<span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
         {% endfor %}
+          <li style="border-bottom:none;"><article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"> <a href="articles" class="pull-right entry-more">更多文章&gt;&gt;</a></article></li>
+        </ul>
+      </div><!-- /.entry-content -->
+      <h1>Projects</h1>
+      <div class="entry-content">
+        <ul class="project-list">
+        {% for project in site.projects limit:10 %}
+          {% if project.type %}
+          {% else %}
+          <li>
+          <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+              <a href="{% if project.url %}{{ project.url }}{% else %}#{%endif%}" title="{{project.desc}}">
+                  {{ project.title }} <span class="entry-date">{{project.date}}</span><span class="entry-desc">{{project.desc}}</span>
+              </a>
+          </article>
+          </li>
+          {% endif %}
+        {% endfor %}
+        {% comment %}
+          <li style="border-bottom:none;"><article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"> <a href="#more-projects" class="entry-more pull-right">更多项目&gt;&gt;</a></article></li>
+        {% endcomment %}
+        </ul>
+      </div><!-- /.entry-content -->
+      <h1>Research</h1>
+      <div class="entry-content">
+        <ul class="project-list">
+        {% for project in site.projects limit:10 %}
+          {% if project.type == 'research' %}
+          <li>
+          <article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+              <a href="{% if project.url %}{{ project.url }}{% else %}#{%endif%}" title="{{project.desc}}">
+              {{ project.title }} <span class="entry-date">{{project.date}}</span><span class="entry-desc">{{project.desc}}</span>
+              </a>
+          </article>
+          </li>
+          {% endif %}
+        {% endfor %}
+        {% comment %}
+          <li style="border-bottom:none;"><article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting"> <a href="#more-projects" class="entry-more pull-right">更多研究&gt;&gt;</a></article></li>
+        {% endcomment %}
         </ul>
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
