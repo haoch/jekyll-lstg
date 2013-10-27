@@ -38,6 +38,7 @@ task :tasks do
     puts "rake push"
     puts "rake icons"
 end
+
 # Usage: rake post title="A Title" [date="2012-02-09"]
 desc "Begin a new post in #{CONFIG['posts']}"
 task :post do
