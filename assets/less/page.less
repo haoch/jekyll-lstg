@@ -512,7 +512,7 @@ span + .entry-title {
 	}
 }
 // Post index layout
-.post-list {
+.project-list,.post-list {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
@@ -533,6 +533,18 @@ span + .entry-title {
 			display: inline;
 		}
 	}
+    .entry-desc{
+		.font-rem(14);
+        font-style:italic;
+        display:none;
+        float:none;
+		@media @medium{
+            display:block;
+		}
+    }
+    .entry-more{
+        .font-rem(10);
+    }
 }
 // Tag index
 .tag-box {
