@@ -27,4 +27,4 @@ tags: [Hao Chen, java, python,hadoop,big data ]
 - 通过电子邮箱: [cn.haochen@gmail.com](mailto:cn.haochen@gmail.com)给他写信
 - 在Github: [@haoch](https://github.com/haoch)找到他的代码
 - 在Linkedin: [@ihaochen](http://linkedin.com/in/ihaochen) 查看他的最新履历
-- 在微博: [@__ cHenhAO __](http://weibo.com/haochencn)和Twitter: [@hchen7](http://twitter.com/hchen7)给他留言
+- 在微博: [@Hochn](http://weibo.com/haochencn)和Twitter: [@hchen7](http://twitter.com/hchen7)给他留言
