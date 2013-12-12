@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Chrome DevRel Team (chrome-devrel@googlegroups.com)
+                 Alex Russell (slightlyoff@chromium.org)
+                 Brad Neuberg
+-->
+
+<!-- GB: modifications for s9 template pack:
+ 
+  o removed offline manifest
+  o removed disclaimer; it's just a prototype anyway
+  o removed google analytics script code
+  o removed google maps script code
+  o removed all slides
+
+  o in js/utils.js changed line 541pp queryAll('.transitionSlide')
+ 
+     - looks for h1 (not h2) and doesn't include img (icon)
+
+  o in styles/commons.css commented out rules for li and bullets
+ 
+   li {
+    list-style: none;
+    padding: 10px 0;
+   }
+   .bullets {
+  font-size: 40px;
+  }
+  .bullets li::before {
+    content: '· ';
+  }
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+    <title>Practical Pig</title>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" rel="stylesheet" type="text/css" />
+    <link id="prettify-link" href="src/prettify/prettify.css" rel="stylesheet" disabled />
+    <link href="styles/fonts.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="styles/presentation.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="styles/common.css" rel="stylesheet" type="text/css" media="screen" />
+    <link class="theme" href="styles/default.css" rel="stylesheet" type="text/css" media="screen" />
+    <link class="theme" href="styles/moon.css" rel="stylesheet" type="text/css" media="screen" />
+    <link class="theme" href="styles/sand.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link class="theme" href="styles/sea_wave.css" rel="stylesheet" type="text/css" media="screen"/>
+  </head>
+  <body>
+    <div id="flex-container">
+    <nav id="helpers">
+      <button title="Previous slide" id="nav-prev" class="nav-prev">&#8701;</button> 
+      <button title="Jump to a random slide" id="slide-no">5</button> 
+      <button title="Next slide" id="nav-next" class="nav-next">&#8702;</button>
+      <menu>
+        <button type="checkbox" data-command="toc" title="Table of Contents" class="toc">TOC</button>
+        <!-- <button type="checkbox" data-command="resources" title="View Related Resources">&#9734;</button> -->
+        <button type="checkbox" data-command="notes" title="View Slide Notes">&#9999;</button>
+        <button type="checkbox" data-command="source" title="View slide source">&#8635;</button>
+        <button type="checkbox" data-command="help" title="View Help">?</button>
+      </menu>
+    </nav>
+    <div class="slides">
+      <div id="presentation-counter">Loading...</div>
+        <div class="slide" id="landing-slide">
+          <section class="middle">
+            <p>This presentation is an HTML5 website</p>
+            <p>Press <span id="left-init-key" class="key">&rarr;</span> key to advance.</p>
+          </section>
+          <aside class="note">
+            <section>
+              Welcome! (This field is for speaker notes and commentary.)
+            </section>
+          </aside> 
+        </div>
+
+        <div class="slide" id="controls-slide">
+          <header>Slides controls</header>
+          <section>
+            <ul>
+              <li><span class="key">&larr;</span> and <span class="key">&rarr;</span> to move around.</li>
+              <li><span class="key">Ctrl/Command</span> and <span class="key">+</span> or <span class="key">-</span> to zoom in and out if slides don’t fit.</li>
+              <li><span class="key">S</span> to view page source.</li>
+              <li><span class="key">T</span> to change the theme.</li>
+              <li><span class="key">H</span> to toggle syntax highlight.</li>
+              <li><span class="key">N</span> to toggle speaker notes.</li>
+              <li><span class="key">3</span> to toggle 3D effect.</li>
+              <li><span class="key">0</span> to toggle help.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide" id="title-slide">
+          <section class="middle">
+            <hgroup>
+              <h1>
+                Practical Pig
+              </h1>
+              <h2>
+                Your Subtitle Here
+              </h2>
+            </hgroup>
+          </section>
+        </div>
+
+        <div class="slide" id="table-of-contents">
+          <header><h1>Agenda - Table of Contents</h1></header>
+          <section>
+            <ul id="toc-list">
+            </ul>
+          </section>
+        </div>
+
+
+        
+        <div class="slide transitionSlide" id="slide2">
+          <header><h1 id="practical-pig">Practical Pig</h1></header>
+          <section>
+              <!-- === begin markdown block ===
+
+      generated by markdown 1.1.1 on Ruby 2.0.0 (2013-06-27) [x86_64-darwin11.4.2]
+                on 2013-12-13 02:53:52 +0800 with Markdown engine kramdown (1.3.0)
+                  using options {}
+  -->
+
+<!-- _S9SLIDE_ -->
+
+<p><strong>Agenda</strong></p>
+
+<ul>
+  <li>Why pig</li>
+  <li>Components</li>
+  <li>How it works with Map Reduce</li>
+  <li>Pig Latin</li>
+  <li>Advanced References and topics</li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide3">
+          <header><h1 id="why-pig">Why Pig</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Map Reduce is very powerful, but:
+    <ul>
+      <li>requires a Java programmer</li>
+      <li>re-invent common functionality (join, filter,etc)</li>
+    </ul>
+  </li>
+  <li>Pig provides a higher level language</li>
+  <li>Increases productivity
+    <ul>
+      <li>10 lines of Pig Latin = 200 lines of Java</li>
+      <li>4 hours of writing in java took 15 mins in Pig Latin</li>
+    </ul>
+  </li>
+  <li>Face to no only java programmers</li>
+  <li>Provides common operations like join, group,filter,sort</li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide4">
+          <header><h1 id="why-new-languages">Why new languages</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Pig Latin is procedural, where SQL is declarative</li>
+  <li>Pig Latin allows pipeline developers to decide where to checkpoint data in the pipeline</li>
+  <li>Pig Latin allows the developer to select specific operator implementations directly rather than relying on the optimizer</li>
+  <li>Pig Latin supports splits in the pipeline</li>
+  <li>Pig Latin allows developers to insert their own code and existing binaries almost anywhere in the data pipeline</li>
+  <li>Metadata not requireds, but used when available</li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide5">
+          <header><h1 id="how-pig-work">How Pig Work</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li><strong>Pig Engine</strong>: provides an execution engine atop Hadoop
+    <ul>
+      <li>Removes need for users to tune Hadoop for their needs</li>
+      <li>Insulates users from changes in Hadoop interfaces</li>
+    </ul>
+  </li>
+  <li><strong>$PIG_HOME/lib/pig.jar</strong>
+    <ul>
+      <li>parses</li>
+      <li>checks</li>
+      <li>optimizes</li>
+      <li>plans execution</li>
+      <li>submits jar to Hadoop</li>
+      <li>monitors job progress </li>
+    </ul>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide6">
+          <header><h1 id="how-pig-is-being-used">How Pig is being Used</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Web log processing</li>
+  <li>Data processing for web search platforms</li>
+  <li>Ad hoc queries across large data sets</li>
+  <li>Rapid prototyping of algorithms for processing large data sets</li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide7">
+          <header><h1 id="performance">Performance</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p><strong>Pig Mix</strong></p>
+
+<p>PigMix is a set of queries used test pig performance from release to release: <a href="https://cwiki.apache.org/confluence/display/PIG/PigMix">https://cwiki.apache.org/confluence/display/PIG/PigMix
+</a></p>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide8">
+          <header><h1 id="data-types">Data Types</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Scalar types:
+    <ul>
+      <li><strong>int</strong></li>
+      <li><strong>long</strong></li>
+      <li><strong>double</strong></li>
+      <li><strong>chararray</strong></li>
+      <li><strong>bytearray</strong></li>
+    </ul>
+  </li>
+  <li>Complex types:
+    <ul>
+      <li><strong>map</strong>: associative array</li>
+      <li><strong>tuple</strong>: ordered list of data, elements may be of any scalar or complex type</li>
+      <li><strong>bag</strong>: unordered collection of tuples</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide9">
+          <header><h1 id="example">Example</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li><strong>Pig</strong>: <code>$pig</code> / <code>$pig -x local</code></li>
+  <li><strong>Grunt</strong>: gun readline interactive tool</li>
+  <li>Data
+    <ul>
+      <li><a href="https://svn.apache.org/repos/asf/pig/trunk/tutorial/data/">https://svn.apache.org/repos/asf/pig/trunk/tutorial/data/</a></li>
+      <li><a href="https://raw.github.com/somoso/basedbible/master/bible.txt">https://raw.github.com/somoso/basedbible/master/bible.txt</a></li>
+      <li><a href="https://raw.github.com/somoso/basedbible/master/bible.txt">http://SHAKESPEARElib.ru/SHAKESPEARE/sonnets.txt_Contents</a></li>
+      <li><a href="https://raw.github.com/somoso/basedbible/master/bible.txt">http://www.ccel.org/ccel/bible/kjv.txt</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide10">
+          <header><h1 id="operation">Operation</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li><strong>Illustrate Operation</strong>
+    <ul>
+      <li>DESCRIBE</li>
+      <li>EXPLAIN</li>
+      <li>ILLUSTRATE</li>
+    </ul>
+  </li>
+  <li><strong>Relation Operation</strong>
+    <ul>
+      <li>LOAD</li>
+      <li>STORE</li>
+      <li>FOREACH</li>
+      <li>FILTER</li>
+      <li>GROUP / COGROUP</li>
+      <li>JOIN</li>
+      <li>ORDER</li>
+      <li>DISTINCT</li>
+      <li>UNION</li>
+      <li>SPLIT</li>
+      <li>STREAM</li>
+      <li>DUMP</li>
+      <li>LIMIT</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide11">
+          <header><h1 id="aggregation">Aggregation</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p><strong>GROUP … BY …</strong></p>
+
+<p>Count number of times each user appears in the excite data set;</p>
+
+<pre><code>log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, timestamp, query);
+grpd = GROUP log BY user;
+cntd = FOREACH grpd GENERATE group, COUNT(log);
+STORE cntd INTO 'group_output';
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide12">
+          <header><h1 id="grouping">Grouping</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Separate operation from applying aggregate functions</li>
+  <li>
+    <p>Output : (key,bag), bag contains a tuple of every records with the key</p>
+
+    <pre><code>  alan     1
+  bob      9     =&gt; alan, {(alan,1),(alan,3)}
+  alan     3        bob,{(bob,9)}
+</code></pre>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide13">
+          <header><h1 id="filtering">Filtering</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p><strong>FILTER … BY …</strong></p>
+
+<p>Get high frequency users whose count is great than 50</p>
+
+<pre><code>log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
+grpd = GROUP log BY user;
+cntd = FOREACH grpd GENERATE group, COUNT(log) AS cnt;
+fltrd = FILTER cntd BY cnt &gt; 50;
+STORE fltrd INTO 'filter_output'; 
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide14">
+          <header><h1 id="sorting">Sorting</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p><strong>ORDER … BY …</strong></p>
+
+<p>Sort high frequency users by frequency</p>
+
+<pre><code>log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
+grpd = GROUP log BY user;
+cntd = FOREACH grpd GENERATE
+group, COUNT(log) AS cnt;
+fltrd = FILTER cntd BY cnt &gt; 50;
+srtd = ORDER fltrd BY cnt;
+STORE srtd INTO 'sort_output';
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide15">
+          <header><h1 id="word-count">Word Count</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p>Word count on King James Bible data and Shakespeare’s works</p>
+
+<ul>
+  <li>King James Bible
+    <ul>
+      <li>INPUT:’/test/bible-kjv.txt’</li>
+      <li>OUTPUT: ‘bible_freq’</li>
+    </ul>
+  </li>
+  <li>Shakespeare’s works
+    <ul>
+      <li>INPUT:’/test/shakespeare_sonnets.txt’</li>
+      <li>OUTPUT:’shake_freq’</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide16">
+          <header><h1 id="word-count---continue">Word Count - Continue</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+
+<pre><code>A = load '/test/bible-kjv.txt' ;
+B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+C = filter B by word matches '\\w+';
+D = group C by word;
+E = foreach D generate COUNT(C), group;
+store E into 'bible_freq';
+
+A = load '/test/shakespeare_sonnets.txt';
+B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+C = filter B by word matches '\\w+';
+D = group C by word;
+E = foreach D generate COUNT(C), group;
+store E into 'shake_freq';
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide17">
+          <header><h1 id="join">Join</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p>Find words that are in both the King James Version of Bible and Shakespeare’s sonnets</p>
+
+<pre><code>bible = LOAD 'bible_freq' AS (cnt,word);
+shake = LOAD 'shake_freq' AS (cnt,word);
+both = JOIN bible BY word, shake BY word;
+STORE both INTO 'both_words'
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide18">
+          <header><h1 id="anti-join">Anti-Join</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p>Find words that are in the Bible that are not in Shakespeare.</p>
+
+<pre><code>cogrp = COGROUP  bible BY word, shake BY word;
+noshake_grp = FILTER cogrp BY count(shake) == 0;
+noshake = FOREACH noshake_grp GENERATE FLATTEN(bible);
+STORE  noshake INTO 'noshake'
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide19">
+          <header><h1 id="cogrouping">Cogrouping</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>A generalization of grouping</li>
+  <li>Keys of two (or more ) inputs are collected</li>
+  <li>
+    <p>OUTPUT: (key,bag1,bag2,…), contains multi bags with records in the key</p>
+
+    <pre><code>  alan     1    alan     5 
+  bob      9    bob      9  =&gt;  {alan, {(alan,1),(alan,3)},{alan,5}}
+  alan     3                    bob,{(bob,9),},{}
+</code></pre>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide20">
+          <header><h1 id="nested-operations">Nested Operations</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p><strong>FOREACH .. { … }</strong></p>
+
+<pre><code>FOREACH pipe {
+	operation 1;
+ 	operation 2;
+ 	-- more;
+};
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide21">
+          <header><h1 id="splitting">Splitting</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p>Data flow need not be linear, can be split explicitly:</p>
+
+<pre><code>A = LOAD 'data';
+B = FILTER A BY $0 &gt; 0;
+C = FILTER A BY $0 &gt; 0;
+
+A = LOAD 'data';
+SPLIT A INTO B IF $0 &lt;0, C IF $0 &gt; 0;
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide22">
+          <header><h1 id="function">Function</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p><strong>Piggy Bank</strong>: <a href="https://cwiki.apache.org/confluence/display/PIG/PiggyBank">https://cwiki.apache.org/confluence/display/PIG/PiggyBank</a></p>
+
+<ul>
+  <li><strong>Eval function</strong>: MAX, AVG, TKENIZE, etc.</li>
+  <li><strong>Filter function</strong>: IsEmpty, etc.</li>
+  <li><strong>Load function</strong>: TextLoader, etc.</li>
+  <li><strong>Store function</strong>: PigStorage, etc.</li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide23">
+          <header><h1 id="user-defined-functions">User Defined Functions</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li><strong>Definition</strong>:
+    <ul>
+      <li>org.apache.pig.EvalFunc</li>
+      <li>org.apache.pig.FilterFunc</li>
+      <li>org.apache.pig.LoadFunc</li>
+      <li>org.apache.pig. StoreFunc  </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Usage</strong>:</p>
+
+    <pre><code>  REGISTER 'pig-udf.jar';
+  FILTER A BY  com.ebay.hchen9.pig.MyUDF($0);
+	
+  DEFINE myUDF com.ebay.hchen9.pig.MyUDF();
+  FILTER A BY  myUDF($0);
+</code></pre>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide24">
+          <header><h1 id="stream">Stream</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p><strong>STREAM … THROUGH script AS schema</strong></p>
+
+<pre><code>STREAM A THROUGH `cut -f 2` AS (schema)
+     
+DEFINE script `script_file_name` SHIP ('script_file_path');
+STREAM A THROUGH script AS (schema)
+</code></pre>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide25">
+          <header><h1 id="custom-load--store">Custom Load &amp; Store</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Default: data is tab separated UTF-8</li>
+  <li>User can set delimiter</li>
+  <li>Customize load/store function to handle de/serialization of the data</li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide26">
+          <header><h1 id="parameter">Parameter</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Parameters:
+    <ul>
+      <li>Command arguments: pig -param input=&lt;INPUT&gt;</li>
+      <li>Parameters file : pig -param_file &lt;PARAM_FILE&gt;</li>
+    </ul>
+  </li>
+  <li>Usage: $input</li>
+  <li>Example: <a href="https://github.scm.corp.ebay.com/hchen9/capman-data/blob/master/hql/capman/hadoop_cpmn_env.param">capman-data/hql/capman/hadoop_cpmn_env.param</a></li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide27">
+          <header><h1 id="macro">Macro</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>
+    <p><strong>Definition</strong>: </p>
+
+    <pre><code>  DEFINE macro(param) RETURNS ret_val{
+  		$ret_val=...;
+  }
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Import</strong>:</p>
+
+    <pre><code>  IMPORT 'pig.macro';
+  A = macr(param)
+</code></pre>
+  </li>
+  <li>
+    <p>Example: <a href="https://github.scm.corp.ebay.com/hchen9/capman-data/blob/master/hql/capman/hadoop_cpmn_macro.pig">capman-data/hql/capman/hadoop_cpmn_macro.pig</a></p>
+  </li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide28">
+          <header><h1 id="case-study">Case Study</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Hadoop mapreduce job summary log : /logs/hadoop-mapreduce.jobsummary.log.2013-10-02
+    <ul>
+      <li><a href="https://github.scm.corp.ebay.com/hchen9/hadoop-learning/blob/master/pig/src/main/pig/log_spliter.py">log_spliter.py</a></li>
+      <li><a href="https://github.scm.corp.ebay.com/hchen9/hadoop-learning/blob/master/pig/src/main/pig/jobsummary_log.pig">job_summary_log.pig</a></li>
+    </ul>
+  </li>
+  <li>Capman data process: <a href="https://github.scm.corp.ebay.com/hchen9/capman-data">capman-data</a></li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide29">
+          <header><h1 id="advanced-references--topics">Advanced References &amp; Topics</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<ul>
+  <li>Why Pig Latin instead of SQL<br /> <a href="http://infolab.stanford.edu/~olston/publications/sigmod08.pdf">http://infolab.stanford.edu/~olston/publications/sigmod08.pdf</a></li>
+  <li>Pig performance<br /><a href="https://cwiki.apache.org/confluence/display/PIG/PigMix">https://cwiki.apache.org/confluence/display/PIG/PigMix</a></li>
+  <li>Pig UDF Manual <br /><a href="http://wiki.apache.org/pig/UDFManual">http://wiki.apache.org/pig/UDFManual</a></li>
+  <li>Programming Pig <br /><a href="http://www.amazon.com/Programming-Pig-Otx-Alan-Gates/dp/1449302645">http://www.amazon.com/Programming-Pig-Otx-Alan-Gates/dp/1449302645</a></li>
+  <li>Apache Pig Document <br /><a href="https://cwiki.apache.org/confluence/display/PIG/Index">https://cwiki.apache.org/confluence/display/PIG/Index</a></li>
+</ul>
+
+
+
+          </section>
+        </div>
+        
+        <div class="slide transitionSlide" id="slide30">
+          <header><h1 id="thanks-you">Thanks you</h1></header>
+          <section>
+              <!-- _S9SLIDE_ -->
+
+<p>Hao Chen</p>
+
+<p>eBay Inc.<br />
+<a href="http://haoch.me">haoch.me</a></p>
+
+<!-- === end markdown block === -->
+
+          </section>
+        </div>
+        
+
+
+        <div id="speaker-note" class="invisible" style="display: none;"></div>
+        <aside id="help" class="sidebar invisible" style="display: none;">
+          <table>
+            <caption>Help</caption>
+            <tbody>
+              <tr>
+                <th>Move Around</th>
+                <td>&larr;&nbsp;&rarr;</td>
+              </tr>
+              <tr>
+                <th>Source File</th>
+                <td>s</td>
+              </tr>
+              <tr>
+                <th>Change Theme</th>
+                <td>t</td>
+              </tr>
+              <tr>
+                <th>Syntax Highlight</th>
+                <td>h</td>
+              </tr>
+              <tr>
+                <th>Speaker Notes</th>
+                <td>n</td>
+              </tr>
+              <tr>
+                <th>Toggle 3D</th>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th>Help</th>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </aside>
+
+    </div> <!-- slides -->
+    </div>
+    
+    <!--[if lt IE 9]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
+    </script>
+    <script>CFInstall.check({ mode: "overlay" });</script>
+    <![endif]-->
+
+    <script src="src/prettify/prettify.js" onload="prettyPrint();" defer></script>
+    <script src="js/utils.js"></script>
+  </body>
+</html>
