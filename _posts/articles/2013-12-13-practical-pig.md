@@ -7,7 +7,7 @@ comments: true
 tags: [hadoop,pig]
 ---
 
-Title: Practical Pig
+Slide: [http://haoch.me/talks/practical_pig](http://haoch.me/talks/practical_pig)
 
 Practical Pig 
 =============
@@ -19,14 +19,11 @@ __Agenda__
 * Pig Latin
 * Advanced References and topics
 
-Map Reduce
-==========
+Why Pig
+=======
 * Map Reduce is very powerful, but:
     - requires a Java programmer
     - re-invent common functionality (join, filter,etc)
-
-Pig Latin
-=========
 * Pig provides a higher level language
 * Increases productivity
     - 10 lines of Pig Latin = 200 lines of Java
@@ -43,11 +40,18 @@ Why new languages
 * Pig Latin allows developers to insert their own code and existing binaries almost anywhere in the data pipeline
 * Metadata not requireds, but used when available
 
-Pig Engine
-===========
-* Pig provides an execution engine atop Hadoop
+How Pig Work
+============
+* __Pig Engine__: provides an execution engine atop Hadoop
     - Removes need for users to tune Hadoop for their needs
     - Insulates users from changes in Hadoop interfaces
+* __$PIG_HOME/lib/pig.jar__
+    - parses
+    - checks
+    - optimizes
+    - plans execution
+    - submits jar to Hadoop
+    - monitors job progress 
 
 How Pig is being Used
 =====================
@@ -55,17 +59,6 @@ How Pig is being Used
 * Data processing for web search platforms
 * Ad hoc queries across large data sets
 * Rapid prototyping of algorithms for processing large data sets
-
-How it works
-========
-__$PIG_HOME/lib/pig.jar__
-
-- parses
-- checks
-- optimizes
-- plans execution
-- submits jar to Hadoop
-- monitors job progress 
 
 Performance
 ========
@@ -88,10 +81,10 @@ Data Types
      - __bag__: unordered collection of tuples
 
 Example
-=====
-* `$pig ( or $pig -x local )`
-* `grunt >`
-* data
+=======
+* __Pig__: `$pig` / `$pig -x local`
+* __Grunt__: gun readline interactive tool
+* Data
      - [https://svn.apache.org/repos/asf/pig/trunk/tutorial/data/](https://svn.apache.org/repos/asf/pig/trunk/tutorial/data/)
      - [https://raw.github.com/somoso/basedbible/master/bible.txt](https://raw.github.com/somoso/basedbible/master/bible.txt)
      - [http://SHAKESPEARElib.ru/SHAKESPEARE/sonnets.txt_Contents](https://raw.github.com/somoso/basedbible/master/bible.txt)
@@ -99,11 +92,11 @@ Example
 
 Operation
 ======
-* Illustrate Operation
+* __Illustrate Operation__
 	- DESCRIBE
 	- EXPLAIN
 	- ILLUSTRATE
-* Relation Operation
+* __Relation Operation__
 	- LOAD
 	- STORE
 	- FOREACH
@@ -134,7 +127,6 @@ Grouping
 * Separate operation from applying aggregate functions
 * Output : (key,bag), bag contains a tuple of every records with the key
 
-
 		alan     1
 		bob      9     => alan, {(alan,1),(alan,3)}
 		alan     3        bob,{(bob,9)}
@@ -151,8 +143,8 @@ Get high frequency users whose count is great than 50
 	fltrd = FILTER cntd BY cnt > 50;
 	STORE fltrd INTO 'filter_output'; 
 
-Sort
-===
+Sorting
+=======
 __ORDER ... BY ...__
 
 Sort high frequency users by frequency
@@ -169,8 +161,12 @@ Word Count
 ========
 Word count on King James Bible data and Shakespeare's works
 
--  INPUT:'/test/bible-kjv.txt' OUTPUT: 'bible_freq'
--  INPUT:'/test/shakespeare_sonnets.txt' => 'shake_freq'
+* King James Bible
+    - INPUT:'/test/bible-kjv.txt'
+    - OUTPUT: 'bible_freq'
+* Shakespeare's works
+    - INPUT:'/test/shakespeare_sonnets.txt'
+    - OUTPUT:'shake_freq'
 
 Word Count - Continue
 ===============
@@ -202,7 +198,7 @@ Anti-Join
 ======
 Find words that are in the Bible that are not in Shakespeare.
 
-   	cogrp = COGROUP  bible BY word, shake BY word;
+    cogrp = COGROUP  bible BY word, shake BY word;
     noshake_grp = FILTER cogrp BY count(shake) == 0;
     noshake = FOREACH noshake_grp GENERATE FLATTEN(bible);
     STORE  noshake INTO 'noshake'
@@ -219,15 +215,16 @@ Cogrouping
 
 Nested Operations
 ============
+__FOREACH .. { ... }__
 
 	FOREACH pipe {
-    	 operation 1;
+    	operation 1;
      	operation 2;
-     	-- more     
-	}
+     	-- more;
+	};
 
-Split
-===
+Splitting
+=========
 Data flow need not be linear, can be split explicitly:
 
 	A = LOAD 'data';
