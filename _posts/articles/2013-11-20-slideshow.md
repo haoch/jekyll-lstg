@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "#COOL APP# slideshow"
+title: "Slide Show (S9) - A Free Web Alternative to PowerPoint and Keynote in Ruby"
 description: "利用纯文本(wiki-style markdown)创建幻灯片"
 categories: 
 - articles
