@@ -24,7 +24,7 @@
 <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:site_name" content="{{ site.title }}">
-
+<meta property="og:image" content="{% if page.image.url %}{{page.image.url}}{% elsif page.image.feature %}{{ site.url }}/images/{{ page.image.feature }}{% else %}{{site.url}}/images/{{site.logo}}{% endif %}">
 <!-- Webmaster Tools verfication -->
 {% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
 {% if site.bing_verify %}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}

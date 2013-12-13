@@ -4,6 +4,8 @@ title: "A little cup of CoffeeScript"
 categories:
 - articles
 tags: ["coffeescript"]
+image:
+    url: "http://coffeescript.org/documentation/images/logo.png"
 comments: true
 ---
 

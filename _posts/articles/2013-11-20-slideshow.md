@@ -4,7 +4,9 @@ title: "Slide Show (S9) - A Free Web Alternative to PowerPoint and Keynote in Ru
 description: "利用纯文本(wiki-style markdown)创建幻灯片"
 categories: 
 - articles
-tags: [app]
+image:
+    url: "https://0.gravatar.com/avatar/3d0992109f4581ea0e898e37fb48af39?d=https%3A%2F%2Fidenticons.github.com%2F92a03b30888f1885fd275110ed3a6dda.png&r=x&s=150 "
+tags: [app,ruby,gem]
 comments: true
 ---
 

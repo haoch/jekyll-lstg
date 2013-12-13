@@ -4,6 +4,8 @@ title: "基于Github搭建Maven仓库"
 categories:
 - articles
 comments: true
+image:
+    feature: "maven_log.gif"
 tags: [maven,github]
 ---
 

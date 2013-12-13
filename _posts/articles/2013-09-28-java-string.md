@@ -4,6 +4,8 @@ title: "Java String 内存模型"
 categories:
 - articles
 tags: ["java","String"]
+image:
+    feature: "java.gif"
 comments: true
 ---
 

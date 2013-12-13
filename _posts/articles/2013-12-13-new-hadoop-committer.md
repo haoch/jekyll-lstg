@@ -4,6 +4,8 @@ title: "2013 New Apache Hadoop Committer"
 categories: 
 - articles
 tags: [hadoop,community,apache,news,maillist]
+image:
+    feature: "hadoop-logo.jpg"
 comments: true
 ---
 

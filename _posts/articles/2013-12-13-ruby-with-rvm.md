@@ -4,6 +4,8 @@ title: "Ruby With RVM"
 categories: 
 - articles
 tags: [ruby, rvm]
+image:
+    url: "https://rvm.io/images/logo.png"
 comments: true
 ---
 

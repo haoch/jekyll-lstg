@@ -4,6 +4,8 @@ title: "Practical Pig Tutorial"
 categories:
 - articles
 comments: true
+image:
+    feature: "pig.gif"
 tags: [hadoop,pig]
 ---
 
