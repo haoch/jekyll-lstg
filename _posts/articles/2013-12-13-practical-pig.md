@@ -9,7 +9,7 @@ tags: [hadoop,pig]
 
 __TALK__: [http://haoch.me/talks/practical_pig](http://haoch.me/talks/practical_pig)
 
-![Apache Pig](http://pig.apache.org/images/pig-logo.gif)
+<img alt="Apache Pig" src="http://pig.apache.org/images/pig-logo.gif" class="pull-right"/>
 
 Practical Pig 
 =============
