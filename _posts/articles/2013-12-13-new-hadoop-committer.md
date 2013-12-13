@@ -1,10 +1,9 @@
-
 ---
 layout: post
 title: "2013 New Apache Hadoop Committer"
 categories: 
 - articles
-tags: [hadoop,community,apache]
+tags: [hadoop,community,apache,news,maillist]
 comments: true
 ---
 
