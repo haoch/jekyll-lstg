@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bash Options: getopt & getopts"
+title: "Bash Options"
 categories:
 - articles
 comments: true
