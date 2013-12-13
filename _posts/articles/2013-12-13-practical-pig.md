@@ -9,6 +9,8 @@ tags: [hadoop,pig]
 
 __TALK__: [http://haoch.me/talks/practical_pig](http://haoch.me/talks/practical_pig)
 
+![Hadoop](http://hadoop.apache.org/images/hadoop-logo.jpg)
+
 Practical Pig 
 =============
 __Agenda__
