@@ -4,7 +4,7 @@ title: "Bash Options"
 categories:
 - articles
 comments: true
-tags: [linux,shell,bash]
+tags: [linux,shell,bash,cn]
 ---
 
 
@@ -13,7 +13,7 @@ getopt与getopts提供均可基于相同的规则来重新组合参数，来方�
 __getopt与getopts区别在于__：
 
 * `getopt`是个外部binary文件，作为外部命令调用，而`getopts`是built-in bash 内置命令，可直接调用。
-* `getopts` 的 shell 提供内置 __OPTARG__ 这个变量，`getopts`会依次修改这个变量，可直接通过 __$OPTARG__ 读取参数值，但是getopt则需要通过`set`来重新定位参数 `$1`(参数名),`$2`（参数值，如存在），并使用`shift`的方式依次获取。
+* `getopts` 的 shell 提供内置 __OPTARG__ 这个变量，`getopts`会依次修改这个变量，可直接通过 __$OPTARG__ 读取参数值，但是`getopt`则需要通过`set`来重新定位参数 `$1`(参数名),`$2`（参数值，如存在），并使用`shift`的方式依次获取。
 	
 {% highlight bash %}
 # getopts
