@@ -15,7 +15,7 @@ __getopt与getopts区别在于__：
 * `getopt`是个外部binary文件，作为外部命令调用，而`getopts`是built-in bash 内置命令，可直接调用。
 * `getopts` 的 shell 提供内置 __OPTARG__ 这个变量，`getopts`会依次修改这个变量，可直接通过 __$OPTARG__ 读取参数值，但是getopt则需要通过`set`来重新定位参数 `$1`(参数名),`$2`（参数值，如存在），并使用`shift`的方式依次获取。
 	
-	~~~ bash
+
 		# getopts
 		set -- `getopt -o hi: -l "help;input:" -n "$0" -- "$@"`
 		
@@ -36,7 +36,7 @@ __getopt与getopts区别在于__：
 				\?) exit 1;;
 			esace
 		done
-	~~~
+
 		
 
 * 当参数值中包含空格时，对于`getopt`会识别为多个参数，因此，这种情况下只能用`getopts`.
@@ -47,8 +47,6 @@ __getopt与getopts区别在于__：
 
 getopt
 ------
-
-~~~ bash
 
 	#!/bin/bash
  
@@ -90,12 +88,10 @@ getopt
     	esac
 	done
 	
-~~~
 
 getopts
 -------
 
-{% highlight bash %}
 
 	#!/bin/bash
 	
@@ -112,5 +108,4 @@ getopts
     		esac
     	done
 
-{% endhighlight %}
 
