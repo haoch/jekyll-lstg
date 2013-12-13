@@ -7,7 +7,9 @@ comments: true
 tags: [hadoop,pig]
 ---
 
-Slide: [http://haoch.me/talks/practical_pig](http://haoch.me/talks/practical_pig)
+__TALK__: [http://haoch.me/talks/practical_pig](http://haoch.me/talks/practical_pig)
+
+![Apache Pig](http://pig.apache.org/images/pig-logo.gif)
 
 Practical Pig 
 =============
