@@ -7,6 +7,9 @@ tags: [hadoop,community,apache,news,maillist]
 comments: true
 ---
 
+![Apache](http://hadoop.apache.org/images/apache_feather.gif)
+![Apache Hadoop](http://hadoop.apache.org/images/hadoop-logo.jpg)
+
 * __Jian He <jhe@hortonworks.com>__: YARN
 	- [http://mail-archives.apache.org/mod_mbox/hadoop-general/201312.mbox/%3CCAMEEY-L3pewRCyXjA--9h90XnR8KmxgEqce4=JuDdDA4jxtuQQ@mail.gmail.com%3E](http://mail-archives.apache.org/mod_mbox/hadoop-general/201312.mbox/%3CCAMEEY-L3pewRCyXjA--9h90XnR8KmxgEqce4=JuDdDA4jxtuQQ@mail.gmail.com%3E) 
 * __Zhijie Shen <zshen@hortonworks.com>__: YARN and MapReduce
