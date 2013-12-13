@@ -9,6 +9,8 @@ comments: true
 
 __RVM__ is Ruby Version Manager allowing you to easily manage ruby environment of different versions and gemsets. It encourages to install ruby environments into user home directory `~/.rvm` instead of global system accroding to specified requirements and provides convenient methods for switching and management.
 
+![https://rvm.io/images/logo.png](https://rvm.io/images/logo.png)
+
 Install RVM
 ============
 
