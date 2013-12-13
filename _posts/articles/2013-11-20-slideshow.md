@@ -96,8 +96,7 @@ Slideshow(S9) 是一个ruby gem，允许你使用类wiki标记语言(markdown)�
 		=> Done.
 
 - 第四步，浏览器中打开生成的html文件即可预览 (实例：[Pratical Pig](http://www.haoch.me/talks/practical_pig/#slide2)，基于[google-html5](https://github.com/slideshow-s9/slideshow-google-html5-slides)主题: `slideshow build index -t g5`);
-	
-	<iframe style="border:none" src="http://www.haoch.me/talks/practical_pig/#slide2"></iframe>
+
 
 使用主题模板
 ===========
