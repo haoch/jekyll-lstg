@@ -158,15 +158,13 @@ __ORDER ... BY ...__
 Sort high frequency users by frequency
 
 {% highlight python %}
-
-	log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
-	grpd = GROUP log BY user;
-	cntd = FOREACH grpd GENERATE
-	group, COUNT(log) AS cnt;
-	fltrd = FILTER cntd BY cnt > 50;
-	srtd = ORDER fltrd BY cnt;
-	STORE srtd INTO 'sort_output';
-
+log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
+grpd = GROUP log BY user;
+cntd = FOREACH grpd GENERATE
+group, COUNT(log) AS cnt;
+fltrd = FILTER cntd BY cnt > 50;
+srtd = ORDER fltrd BY cnt;
+STORE srtd INTO 'sort_output';
 {% endhighlight %}
 
 Word Count
@@ -242,13 +240,11 @@ Nested Operations
 __FOREACH .. { ... }__
 
 {% highlight python %}
-
 FOREACH pipe {
     operation 1;
      operation 2;
      -- more;
 };
-
 {% endhighlight %}
 
 Splitting
@@ -256,14 +252,12 @@ Splitting
 Data flow need not be linear, can be split explicitly:
 
 {% highlight python %}
-
 A = LOAD 'data';
 B = FILTER A BY $0 > 0;
 C = FILTER A BY $0 > 0;
 
 A = LOAD 'data';
 SPLIT A INTO B IF $0 <0, C IF $0 > 0;
-
 {% endhighlight %}
 
 Function
@@ -286,27 +280,22 @@ User Defined Functions
 * __Usage__:
 
 {% highlight python %} 
-
 REGISTER 'pig-udf.jar';
 FILTER A BY  com.ebay.hchen9.pig.MyUDF($0);
 
 DEFINE myUDF com.ebay.hchen9.pig.MyUDF();
 FILTER A BY  myUDF($0);
-
 {% endhighlight %}
 
 Stream          
 =====
 __STREAM ... THROUGH script AS schema__
 
-
 {% highlight python %} 
-
 STREAM A THROUGH `cut -f 2` AS (schema)
      
 DEFINE script `script_file_name` SHIP ('script_file_path');
 STREAM A THROUGH script AS (schema)
-
 {% endhighlight %}
           
 Custom Load & Store
@@ -328,20 +317,16 @@ Macro
 * __Definition__: 
 
 {% highlight python %} 
-		
 DEFINE macro(param) RETURNS ret_val{
     $ret_val=...;
 }
-
 {% endhighlight %}
 
 * __Import__:
 
 {% highlight python %} 
-		
 IMPORT 'pig.macro';
 A = macr(param);
-
 {% endhighlight %}
 
 * Example: [capman-data/hql/capman/hadoop_cpmn_macro.pig](https://github.scm.corp.ebay.com/hchen9/capman-data/blob/master/hql/capman/hadoop_cpmn_macro.pig)
@@ -362,11 +347,8 @@ Advanced References & Topics
 * Apache Pig Document <br />[https://cwiki.apache.org/confluence/display/PIG/Index](https://cwiki.apache.org/confluence/display/PIG/Index)
 
 Thanks you
-=======
+==========
 Hao Chen
 
 eBay Inc.<br />
 [haoch.me](http://haoch.me)
-     
-
-
