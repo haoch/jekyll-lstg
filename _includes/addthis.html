@@ -36,7 +36,6 @@ addthis.box("#addthis_trendingcontent", {
    width : "auto"});
 </script>
 <!-- AddThis Smart Layers END -->
-
 <!-- AddThis Welcome BEGIN -->
 <script type='text/javascript'>
 addthis.bar.initialize({'default':{
@@ -135,6 +134,58 @@ addthis.bar.initialize({'default':{
 			"text": "Post on Qzone",
 			"verb": "share",
 			"service": "qzone"
+		}
+	},
+	{
+		"name": "blogger",
+		"match": {
+			"referringService": "blogger"
+		},
+		"message": "If you enjoy this page, do us a favor:",
+		"action": {
+			"type": "button",
+			"text": "Post on Blogger",
+			"verb": "share",
+			"service": "blogger"
+		}
+	},
+	{
+		"name": "digg",
+		"match": {
+			"referringService": "digg"
+		},
+		"message": "If you enjoy this page, do us a favor:",
+		"action": {
+			"type": "button",
+			"text": "Post on Digg",
+			"verb": "share",
+			"service": "digg"
+		}
+	},
+	{
+		"name": "google_plusone_share",
+		"match": {
+			"referringService": "google_plusone_share"
+		},
+		"message": "If you enjoy this page, do us a favor:",
+		"action": {
+			"type": "button",
+			"text": "Post on Google+ Share",
+			"verb": "share",
+			"service": "google_plusone_share"
+		}
+	},
+	{
+		"name": "email",
+		"match": {
+			"referringService": "email"
+		},
+		"message": "If you enjoy this page, do us a favor:",
+		"action": {
+			"type": "button",
+			"text": "Post on Email",
+			"verb": "share",
+			"service": "email"
 		}
 	}
 ]});
