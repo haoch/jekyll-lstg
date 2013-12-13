@@ -76,7 +76,7 @@ RVM will automatically use a ruby and gemset when you `cd` to a project director
 
 Read more on project files:
 
-- https://rvm.io/workflow/projects/#ruby-versions
+- [https://rvm.io/workflow/projects/#ruby-versions](https://rvm.io/workflow/projects/#ruby-versions)
 
 Using ruby and gems
 ====================
@@ -119,14 +119,14 @@ Working with gemsets:
 
 Install RVM for all users
 --------------------------
-Discouraged; make sure to read http://rvm.io/rvm/installation/
+Discouraged; make sure to read [http://rvm.io/rvm/installation/](http://rvm.io/rvm/installation/)
 
 Trouble shooting
 ================
 A lot of resources is available:
 
 - in your terminal: `rvm help`
-- https://rvm.io/
+- [https://rvm.io/](https://rvm.io/)
 
 __Q1. getcwd: cannot access parent directories: No such file or directory__
  
@@ -145,4 +145,4 @@ __Q2. rvm reinstall 1.9.3 need sudo__
 
 __Q3. ruby extconf.rb error on mac osx__
 
-  __Solution__: reinstall corresponding OSX Command Line Tools for Xcode https://developer.apple.com/downloads/index.action# and reinstall your package again, if not work, reinstall rvm and ruby then retry
+  __Solution__: reinstall corresponding OSX Command Line Tools for Xcode [https://developer.apple.com/downloads/index.action](https://developer.apple.com/downloads/index.action) and reinstall your package again, if not work, reinstall rvm and ruby then retry
