@@ -117,10 +117,14 @@ __GROUP ... BY ...__
 
 Count number of times each user appears in the excite data set;
 
-	log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, timestamp, query);
-	grpd = GROUP log BY user;
-	cntd = FOREACH grpd GENERATE group, COUNT(log);
-	STORE cntd INTO 'group_output';
+{% highlight python %}
+
+log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, timestamp, query);
+grpd = GROUP log BY user;
+cntd = FOREACH grpd GENERATE group, COUNT(log);
+STORE cntd INTO 'group_output';
+
+{% endhighlight %}
 
 Grouping
 ======
@@ -137,17 +141,23 @@ __FILTER ... BY ...__
 
 Get high frequency users whose count is great than 50
 
-	log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
-	grpd = GROUP log BY user;
-	cntd = FOREACH grpd GENERATE group, COUNT(log) AS cnt;
-	fltrd = FILTER cntd BY cnt > 50;
-	STORE fltrd INTO 'filter_output'; 
+{% highlight python %}
+
+log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
+grpd = GROUP log BY user;
+cntd = FOREACH grpd GENERATE group, COUNT(log) AS cnt;
+fltrd = FILTER cntd BY cnt > 50;
+STORE fltrd INTO 'filter_output'; 
+
+{% endhighlight %}
 
 Sorting
 =======
 __ORDER ... BY ...__
 
 Sort high frequency users by frequency
+
+{% highlight python %}
 
 	log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
 	grpd = GROUP log BY user;
@@ -156,6 +166,8 @@ Sort high frequency users by frequency
 	fltrd = FILTER cntd BY cnt > 50;
 	srtd = ORDER fltrd BY cnt;
 	STORE srtd INTO 'sort_output';
+
+{% endhighlight %}
 
 Word Count
 ========
@@ -171,37 +183,49 @@ Word count on King James Bible data and Shakespeare's works
 Word Count - Continue
 ===============
 
-	A = load '/test/bible-kjv.txt' ;
-	B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
-	C = filter B by word matches '\\w+';
-	D = group C by word;
-	E = foreach D generate COUNT(C), group;
-	store E into 'bible_freq';
+{% highlight python %}
 
-	A = load '/test/shakespeare_sonnets.txt';
-	B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
-	C = filter B by word matches '\\w+';
-	D = group C by word;
-	E = foreach D generate COUNT(C), group;
-	store E into 'shake_freq';
+A = load '/test/bible-kjv.txt' ;
+B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+C = filter B by word matches '\\w+';
+D = group C by word;
+E = foreach D generate COUNT(C), group;
+store E into 'bible_freq';
+
+A = load '/test/shakespeare_sonnets.txt';
+B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+C = filter B by word matches '\\w+';
+D = group C by word;
+E = foreach D generate COUNT(C), group;
+store E into 'shake_freq';
+
+{% endhighlight %}
 
 Join
 ===
 Find words that are in both the King James Version of Bible and Shakespeare's sonnets
 
-	bible = LOAD 'bible_freq' AS (cnt,word);
-	shake = LOAD 'shake_freq' AS (cnt,word);
-    both = JOIN bible BY word, shake BY word;
-    STORE both INTO 'both_words'
+{% highlight python %}
+
+bible = LOAD 'bible_freq' AS (cnt,word);
+shake = LOAD 'shake_freq' AS (cnt,word);
+both = JOIN bible BY word, shake BY word;
+STORE both INTO 'both_words'
+
+{% endhighlight %}
 
 Anti-Join
 ======
 Find words that are in the Bible that are not in Shakespeare.
 
-    cogrp = COGROUP  bible BY word, shake BY word;
-    noshake_grp = FILTER cogrp BY count(shake) == 0;
-    noshake = FOREACH noshake_grp GENERATE FLATTEN(bible);
-    STORE  noshake INTO 'noshake'
+{% highlight python %}
+
+cogrp = COGROUP  bible BY word, shake BY word;
+noshake_grp = FILTER cogrp BY count(shake) == 0;
+noshake = FOREACH noshake_grp GENERATE FLATTEN(bible);
+STORE  noshake INTO 'noshake'
+
+{% endhighlight %}
 
 Cogrouping
 ========
@@ -217,22 +241,30 @@ Nested Operations
 ============
 __FOREACH .. { ... }__
 
-	FOREACH pipe {
-    	operation 1;
-     	operation 2;
-     	-- more;
-	};
+{% highlight python %}
+
+FOREACH pipe {
+    operation 1;
+     operation 2;
+     -- more;
+};
+
+{% endhighlight %}
 
 Splitting
 =========
 Data flow need not be linear, can be split explicitly:
 
-	A = LOAD 'data';
-	B = FILTER A BY $0 > 0;
-	C = FILTER A BY $0 > 0;
-	
-	A = LOAD 'data';
-	SPLIT A INTO B IF $0 <0, C IF $0 > 0;
+{% highlight python %}
+
+A = LOAD 'data';
+B = FILTER A BY $0 > 0;
+C = FILTER A BY $0 > 0;
+
+A = LOAD 'data';
+SPLIT A INTO B IF $0 <0, C IF $0 > 0;
+
+{% endhighlight %}
 
 Function
 ======
@@ -252,21 +284,30 @@ User Defined Functions
 	- org.apache.pig.LoadFunc
 	- org.apache.pig. StoreFunc  
 * __Usage__:
-		
-		REGISTER 'pig-udf.jar';
-		FILTER A BY  com.ebay.hchen9.pig.MyUDF($0);
-		
-		DEFINE myUDF com.ebay.hchen9.pig.MyUDF();
-		FILTER A BY  myUDF($0);
+
+{% highlight python %} 
+
+REGISTER 'pig-udf.jar';
+FILTER A BY  com.ebay.hchen9.pig.MyUDF($0);
+
+DEFINE myUDF com.ebay.hchen9.pig.MyUDF();
+FILTER A BY  myUDF($0);
+
+{% endhighlight %}
 
 Stream          
 =====
 __STREAM ... THROUGH script AS schema__
 
-	STREAM A THROUGH `cut -f 2` AS (schema)
-	     
-    DEFINE script `script_file_name` SHIP ('script_file_path');
-    STREAM A THROUGH script AS (schema)
+
+{% highlight python %} 
+
+STREAM A THROUGH `cut -f 2` AS (schema)
+     
+DEFINE script `script_file_name` SHIP ('script_file_path');
+STREAM A THROUGH script AS (schema)
+
+{% endhighlight %}
           
 Custom Load & Store
 ==============
@@ -285,15 +326,23 @@ Parameter
 Macro
 ====
 * __Definition__: 
+
+{% highlight python %} 
 		
-		DEFINE macro(param) RETURNS ret_val{
-    		$ret_val=...;
-		}
+DEFINE macro(param) RETURNS ret_val{
+    $ret_val=...;
+}
+
+{% endhighlight %}
 
 * __Import__:
+
+{% highlight python %} 
 		
-		IMPORT 'pig.macro';
-		A = macr(param)
+IMPORT 'pig.macro';
+A = macr(param);
+
+{% endhighlight %}
 
 * Example: [capman-data/hql/capman/hadoop_cpmn_macro.pig](https://github.scm.corp.ebay.com/hchen9/capman-data/blob/master/hql/capman/hadoop_cpmn_macro.pig)
 
