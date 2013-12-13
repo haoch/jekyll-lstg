@@ -49,6 +49,9 @@ navigation:
 
 # Related Links displayed in links page
 links:
+  - title: Big Data is Something
+    desc: Data Warehouse,Teradata, SQL, ETL, Abinitio，Hadoop, Java and 管理
+    url: http://hi.baidu.com/wzcyc
   - title: 北落师门
     desc: "Lionel Cao's blog site"
     url: http://www.lucao.com.cn
