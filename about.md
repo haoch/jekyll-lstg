@@ -9,7 +9,7 @@ tags: [Hao Chen, java, python,hadoop,big data ]
 ---
 
 <link rel="stylesheet" href="{{ site.url }}/_assets/css/form.css">
-<script src="{{ site.url }}/_assets/js/vendor/wufoo.js %}"></script>
+<script src="{{ site.url }}/_assets/js/vendor/wufoo.js"></script>
 
 <center>
     <img src="/images/{{site.owner.avatar}}" alt="{{site.owner.name}} it's a pleasure."  border="0" itemprop="image" class="image-rounded">
