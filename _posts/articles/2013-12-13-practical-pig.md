@@ -10,6 +10,7 @@ tags: [hadoop,pig]
 __TALK__: [http://haoch.me/talks/practical_pig](http://haoch.me/talks/practical_pig)
 
 ![Hadoop](http://hadoop.apache.org/images/hadoop-logo.jpg)
+<img width="60" height="90" alt="Pig" src="http://hortonworks.com/wp-content/uploads/2013/10/pig.gif"/> 
 
 Practical Pig 
 =============
