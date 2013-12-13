@@ -53,12 +53,15 @@ links:
     desc: Data Warehouse,Teradata, SQL, ETL, Abinitio，Hadoop, Java and 管理
     url: http://hi.baidu.com/wzcyc
   - title: 北落师门
-    desc: "Lionel Cao's blog site"
+    desc: 数据工程师曹鲁
     url: http://www.lucao.com.cn
     rss: http://www.lucao.com.cn/feed/
   - title: 我自然
     desc: 颜开的博客
     url: http://yankay.com
+  - title: 秋实
+    desc: 写代码是生存，摄影是生活
+    url: http://chenqiushi.com/
 
 projects:
   - title: Cascading Tester
