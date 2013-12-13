@@ -10,6 +10,8 @@ comments: true
 
 Slideshow(S9) 是一个ruby gem，允许你使用类wiki标记语言(markdown)创建和编辑幻灯片，修改和阅读都非常方便。这个项目内置支持非gem "out-of-gem" 的无损向量图主题扩展，并提供许多很漂亮的[主题库](http://slideshow-s9.github.io/gallery.html)，当然也可以自己定义自己的主题。
 
+![Slideshow S9](https://0.gravatar.com/avatar/3d0992109f4581ea0e898e37fb48af39?d=https%3A%2F%2Fidenticons.github.com%2F92a03b30888f1885fd275110ed3a6dda.png&r=x&s=150)
+
 开始使用
 =======
 - 第一步，安装 [`slideshow`](https://rubygems.org/gems/slideshow) gem,在终端作为命令中使用，为了更方便的管理ruby环境和gemsets，推荐使用[`rvm`](http://www.haoch.me/articles/ruby-with-rvm.html)
