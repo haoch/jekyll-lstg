@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Practical Pig"
+title: "Practical Pig Tutorial"
 categories:
 - articles
 comments: true
