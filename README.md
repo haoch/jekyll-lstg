@@ -1,5 +1,7 @@
-Hao's Personal Site
-===================
+jekyll-lstg (Listing)
+=====================
+
+Another simple and clear jekyll theme.
 
 Screenshot
 ----------
