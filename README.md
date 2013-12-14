@@ -15,7 +15,7 @@ Screenshot
 ### Page
 ![Page](images/screenshot/screenshot-articles.png)
 
-![Page](images/screenshot/screenshot-about.png)
+![Page](images/screenshot/screenshout-about.png)
 
 ### Post
 ![Post](images/screenshot/screenshot-post-1.png)
