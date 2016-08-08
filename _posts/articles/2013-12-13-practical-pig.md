@@ -315,7 +315,7 @@ Parameter
      - Command arguments: pig -param input=&lt;INPUT&gt;
      - Parameters file : pig -param_file &lt;PARAM_FILE&gt;
 * Usage: $input
-* Example: [capman-data/hql/capman/hadoop_cpmn_env.param](https://github.scm.corp.ebay.com/hchen9/capman-data/blob/master/hql/capman/hadoop_cpmn_env.param)
+* Example: [capman-data/hql/capman/hadoop_cpmn_env.param](#/capman-data/blob/master/hql/capman/hadoop_cpmn_env.param)
 
 Macro
 ====
@@ -334,14 +334,14 @@ IMPORT 'pig.macro';
 A = macr(param);
 {% endhighlight %}
 
-* Example: [capman-data/hql/capman/hadoop_cpmn_macro.pig](https://github.scm.corp.ebay.com/hchen9/capman-data/blob/master/hql/capman/hadoop_cpmn_macro.pig)
+* Example: [capman-data/hql/capman/hadoop_cpmn_macro.pig](#/capman-data/blob/master/hql/capman/hadoop_cpmn_macro.pig)
 
 Case Study
 =======
 * Hadoop mapreduce job summary log : /logs/hadoop-mapreduce.jobsummary.log.2013-10-02
-     - [log_spliter.py](https://github.scm.corp.ebay.com/hchen9/hadoop-learning/blob/master/pig/src/main/pig/log_spliter.py)
-     - [job_summary_log.pig](https://github.scm.corp.ebay.com/hchen9/hadoop-learning/blob/master/pig/src/main/pig/jobsummary_log.pig)
-* Capman data process: [capman-data](https://github.scm.corp.ebay.com/hchen9/capman-data)
+     - [log_spliter.py](#/hadoop-learning/blob/master/pig/src/main/pig/log_spliter.py)
+     - [job_summary_log.pig](#/hadoop-learning/blob/master/pig/src/main/pig/jobsummary_log.pig)
+* Capman data process: [capman-data](#/capman-data)
 
 Advanced References & Topics
 ====================
