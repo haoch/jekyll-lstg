@@ -84,23 +84,23 @@ Example
 Operation
 ======
 * __Illustrate Operation__
-	- DESCRIBE
-	- EXPLAIN
-	- ILLUSTRATE
+    - DESCRIBE
+    - EXPLAIN
+    - ILLUSTRATE
 * __Relation Operation__
-	- LOAD
-	- STORE
-	- FOREACH
-	- FILTER
-	- GROUP / COGROUP
-	- JOIN
-	- ORDER
-	- DISTINCT
-	- UNION
-	- SPLIT
-	- STREAM
-	- DUMP
-	- LIMIT
+    - LOAD
+    - STORE
+    - FOREACH
+    - FILTER
+    - GROUP / COGROUP
+    - JOIN
+    - ORDER
+    - DISTINCT
+    - UNION
+    - SPLIT
+    - STREAM
+    - DUMP
+    - LIMIT
 
 Aggregation
 ========
@@ -108,19 +108,19 @@ __GROUP ... BY ...__
 
 Count number of times each user appears in the excite data set;
 
-	log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, timestamp, query);
-	grpd = GROUP log BY user;
-	cntd = FOREACH grpd GENERATE group, COUNT(log);
-	STORE cntd INTO 'group_output';
+    log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, timestamp, query);
+    grpd = GROUP log BY user;
+    cntd = FOREACH grpd GENERATE group, COUNT(log);
+    STORE cntd INTO 'group_output';
 
 Grouping
 ======
 * Separate operation from applying aggregate functions
 * Output : (key,bag), bag contains a tuple of every records with the key
 
-		alan     1
-		bob      9     => alan, {(alan,1),(alan,3)}
-		alan     3        bob,{(bob,9)}
+        alan     1
+        bob      9     => alan, {(alan,1),(alan,3)}
+        alan     3        bob,{(bob,9)}
 
 Filtering
 =====
@@ -128,11 +128,11 @@ __FILTER ... BY ...__
 
 Get high frequency users whose count is great than 50
 
-	log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
-	grpd = GROUP log BY user;
-	cntd = FOREACH grpd GENERATE group, COUNT(log) AS cnt;
-	fltrd = FILTER cntd BY cnt > 50;
-	STORE fltrd INTO 'filter_output'; 
+    log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
+    grpd = GROUP log BY user;
+    cntd = FOREACH grpd GENERATE group, COUNT(log) AS cnt;
+    fltrd = FILTER cntd BY cnt > 50;
+    STORE fltrd INTO 'filter_output'; 
 
 Sorting
 =======
@@ -140,13 +140,13 @@ __ORDER ... BY ...__
 
 Sort high frequency users by frequency
 
-	log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
-	grpd = GROUP log BY user;
-	cntd = FOREACH grpd GENERATE
-	group, COUNT(log) AS cnt;
-	fltrd = FILTER cntd BY cnt > 50;
-	srtd = ORDER fltrd BY cnt;
-	STORE srtd INTO 'sort_output';
+    log = LOAD '/test/pig/tutorial/data/excite-small.log' AS (user, time, query);
+    grpd = GROUP log BY user;
+    cntd = FOREACH grpd GENERATE
+    group, COUNT(log) AS cnt;
+    fltrd = FILTER cntd BY cnt > 50;
+    srtd = ORDER fltrd BY cnt;
+    STORE srtd INTO 'sort_output';
 
 Word Count
 ========
@@ -162,26 +162,26 @@ Word count on King James Bible data and Shakespeare's works
 Word Count - Continue
 ===============
 
-	A = load '/test/bible-kjv.txt' ;
-	B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
-	C = filter B by word matches '\\w+';
-	D = group C by word;
-	E = foreach D generate COUNT(C), group;
-	store E into 'bible_freq';
+    A = load '/test/bible-kjv.txt' ;
+    B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+    C = filter B by word matches '\\w+';
+    D = group C by word;
+    E = foreach D generate COUNT(C), group;
+    store E into 'bible_freq';
 
-	A = load '/test/shakespeare_sonnets.txt';
-	B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
-	C = filter B by word matches '\\w+';
-	D = group C by word;
-	E = foreach D generate COUNT(C), group;
-	store E into 'shake_freq';
+    A = load '/test/shakespeare_sonnets.txt';
+    B = foreach A generate flatten(TOKENIZE((chararray)$0)) as word;
+    C = filter B by word matches '\\w+';
+    D = group C by word;
+    E = foreach D generate COUNT(C), group;
+    store E into 'shake_freq';
 
 Join
 ===
 Find words that are in both the King James Version of Bible and Shakespeare's sonnets
 
-	bible = LOAD 'bible_freq' AS (cnt,word);
-	shake = LOAD 'shake_freq' AS (cnt,word);
+    bible = LOAD 'bible_freq' AS (cnt,word);
+    shake = LOAD 'shake_freq' AS (cnt,word);
     both = JOIN bible BY word, shake BY word;
     STORE both INTO 'both_words'
 
@@ -200,30 +200,30 @@ Cogrouping
 * Keys of two (or more ) inputs are collected
 * OUTPUT: (key,bag1,bag2,...), contains multi bags with records in the key
 
-		alan     1    alan     5 
-		bob      9    bob      9  =>  {alan, {(alan,1),(alan,3)},{alan,5}}
-		alan     3                    bob,{(bob,9),},{}
+        alan     1    alan     5 
+        bob      9    bob      9  =>  {alan, {(alan,1),(alan,3)},{alan,5}}
+        alan     3                    bob,{(bob,9),},{}
 
 Nested Operations
 ============
 __FOREACH .. { ... }__
 
-	FOREACH pipe {
-    	operation 1;
-     	operation 2;
-     	-- more;
-	};
+    FOREACH pipe {
+        operation 1;
+        operation 2;
+        -- more;
+    };
 
 Splitting
 =========
 Data flow need not be linear, can be split explicitly:
 
-	A = LOAD 'data';
-	B = FILTER A BY $0 > 0;
-	C = FILTER A BY $0 > 0;
-	
-	A = LOAD 'data';
-	SPLIT A INTO B IF $0 <0, C IF $0 > 0;
+    A = LOAD 'data';
+    B = FILTER A BY $0 > 0;
+    C = FILTER A BY $0 > 0;
+    
+    A = LOAD 'data';
+    SPLIT A INTO B IF $0 <0, C IF $0 > 0;
 
 Function
 ======
@@ -238,24 +238,24 @@ __Piggy Bank__: [https://cwiki.apache.org/confluence/display/PIG/PiggyBank](http
 User Defined Functions
 ===============
 * __Definition__:
-	- org.apache.pig.EvalFunc
-	- org.apache.pig.FilterFunc
-	- org.apache.pig.LoadFunc
-	- org.apache.pig. StoreFunc  
+    - org.apache.pig.EvalFunc
+    - org.apache.pig.FilterFunc
+    - org.apache.pig.LoadFunc
+    - org.apache.pig. StoreFunc  
 * __Usage__:
-		
-		REGISTER 'pig-udf.jar';
-		FILTER A BY  com.ebay.hchen9.pig.MyUDF($0);
-		
-		DEFINE myUDF com.ebay.hchen9.pig.MyUDF();
-		FILTER A BY  myUDF($0);
+        
+        REGISTER 'pig-udf.jar';
+        FILTER A BY  com.ebay.hchen9.pig.MyUDF($0);
+        
+        DEFINE myUDF com.ebay.hchen9.pig.MyUDF();
+        FILTER A BY  myUDF($0);
 
 Stream          
 =====
 __STREAM ... THROUGH script AS schema__
 
-	STREAM A THROUGH `cut -f 2` AS (schema)
-	     
+    STREAM A THROUGH `cut -f 2` AS (schema)
+         
     DEFINE script `script_file_name` SHIP ('script_file_path');
     STREAM A THROUGH script AS (schema)
           
@@ -271,29 +271,29 @@ Parameter
      - Command arguments: pig -param input=&lt;INPUT&gt;
      - Parameters file : pig -param_file &lt;PARAM_FILE&gt;
 * Usage: $input
-* Example: [capman-data/hql/capman/hadoop_cpmn_env.param](https://github.scm.corp.ebay.com/hchen9/capman-data/blob/master/hql/capman/hadoop_cpmn_env.param)
+* Example: [capman-data/hql/capman/hadoop_cpmn_env.param](#/capman-data/blob/master/hql/capman/hadoop_cpmn_env.param)
 
 Macro
 ====
 * __Definition__: 
-		
-		DEFINE macro(param) RETURNS ret_val{
-    		$ret_val=...;
-		}
+        
+        DEFINE macro(param) RETURNS ret_val{
+            $ret_val=...;
+        }
 
 * __Import__:
-		
-		IMPORT 'pig.macro';
-		A = macr(param)
+        
+        IMPORT 'pig.macro';
+        A = macr(param)
 
-* Example: [capman-data/hql/capman/hadoop_cpmn_macro.pig](https://github.scm.corp.ebay.com/hchen9/capman-data/blob/master/hql/capman/hadoop_cpmn_macro.pig)
+* Example: [capman-data/hql/capman/hadoop_cpmn_macro.pig](#/capman-data/blob/master/hql/capman/hadoop_cpmn_macro.pig)
 
 Case Study
 =======
 * Hadoop mapreduce job summary log : /logs/hadoop-mapreduce.jobsummary.log.2013-10-02
-     - [log_spliter.py](https://github.scm.corp.ebay.com/hchen9/hadoop-learning/blob/master/pig/src/main/pig/log_spliter.py)
-     - [job_summary_log.pig](https://github.scm.corp.ebay.com/hchen9/hadoop-learning/blob/master/pig/src/main/pig/jobsummary_log.pig)
-* Capman data process: [capman-data](https://github.scm.corp.ebay.com/hchen9/capman-data)
+     - [log_spliter.py](#/hadoop-learning/blob/master/pig/src/main/pig/log_spliter.py)
+     - [job_summary_log.pig](#/hadoop-learning/blob/master/pig/src/main/pig/jobsummary_log.pig)
+* Capman data process: [capman-data](#/capman-data)
 
 Advanced References & Topics
 ====================
